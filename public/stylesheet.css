@@ -1,0 +1,98 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+.minWidth {
+  min-width: 65vw;
+}
+li > a:hover {
+  background-color: white;
+}
+
+.bg {
+  background-image: linear-gradient(#cdbdd6, #695e88);
+}
+
+.titleAlign {
+  text-align: center;
+}
+
+
+
+
+button {
+  background-color: #f8f9fa;
+  border: none;
+}
+
+.testbg {
+  height: 100vh;
+  background: url("Images/nature.jpg");
+  background-size: cover;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+/* Landing Page */
+#outer {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+#inner {
+  margin: auto;
+}
+
+.title {
+  color: #695e88;
+  font-weight: bold !important;
+  font-size: 35;
+}
+
+.subtitle {
+  color: #695e88;
+  font-size: 25;
+}
+
+.start {
+  color: #695e88;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.cardTitle {
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 10px; /* Added */
+}
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 750px) {
+  .card2 {
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  #outer {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+  }
+}
