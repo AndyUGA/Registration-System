@@ -40,28 +40,12 @@ client.connect(err => {
         res.send({ error: " An error has occurred" });
       } else {
         console.log(42, result);
-        let name = req.user.name;
-        let fullname;
-        firstChar = name.charAt(0);
-        fullname = firstChar.toUpperCase() + name.substring(1, name.length);
-
-        if (content == "dashboard") {
-          res.render("User/dashboard", {
-            fullname: fullname,
-            result: result,
-            title: "Dashboard"
-          });
-        } else if (content == "profile") {
-          res.render("User/profile", {
-            layout: "User/profile",
-            name: name,
-            fullname: fullname,
-            email: req.user.email,
-            id: req.user._id,
-            result: result,
-            title: "Profile"
-          });
-        } 
+       
+        res.render("User/" + content, {
+          result: result[0],
+          title: content
+        })
+        
       }
     });
   });
