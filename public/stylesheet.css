@@ -6,9 +6,15 @@ html {
   font-family: 'Roboto', sans-serif;
 }
 
-
+.cardWidth {
+  width:40%;
+}
 .minWidth {
   min-width: 65vw;
+}
+
+.borderTop {
+  border-bottom: 2px solid blue;
 }
 li > a:hover {
   background-color: white;
