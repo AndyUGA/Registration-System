@@ -15,6 +15,13 @@ client.connect(err => {
   //Get Welcome page
   router.get("/", (req, res) => res.render("Account/login", { layout: "userLayout", title: "Login" }));
 
+   //Submit form
+   router.post("/submitForm", (req, res) => {
+    console.log(req.body.fullname);
+  });
+
+
+
   //Activate Account
   router.get("/activateAccount/:token", (req, res, next) => {
     const token = req.params.token;
