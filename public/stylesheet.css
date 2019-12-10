@@ -6,6 +6,10 @@ html {
   font-family: 'Roboto', sans-serif;
 }
 
+.staffRetreatTitle {
+  font-size: 5vh;
+  font-weight: 300;
+}
 .cardWidth {
   width:40%;
 }

@@ -18,6 +18,7 @@ client.connect(err => {
    //Submit form
    router.post("/submitForm", (req, res) => {
     console.log(req.body.fullname);
+    console.log(req.body.school);
   });
 
 

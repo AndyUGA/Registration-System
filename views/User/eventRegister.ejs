@@ -1,33 +1,33 @@
 <div class="pt-5">
 
-    <h1 class = "text-center"> Staff Retreat 2019 </h1>
+    <div class = "text-center staffRetreatTitle"> Staff Retreat 2019 </div>
     <form method="POST" action="/submitForm" class="p-3 card form-row">
         <div class="form-group">
             <label> Full Name</label>
-            <input type="text" class="form-control" id="fullname" placeholder="Full Name">
+            <input type="text" class="form-control" name="fullname" placeholder="Full Name">
         </div>
         <div class="form-group">
             <label> School </label>
-            <select class="form-control form-control">
+            <select class="form-control form-control" name = "school">
                 <option> Univeristy of Georgia </option>
                 <option> Univeristy of Florida</option>
             </select>
         </div>
         <div class="form-group">
             <label> Emergency Contact Full Name </label>
-            <input type="text" class="form-control" name="fullname" placeholder="Full Name">
+            <input type="text" class="form-control" name="emFullName" placeholder="Full Name">
         </div>
         <div class="form-group">
             <label> Emergency Contact Relationship </label>
-            <input type="text" class="form-control" name="fullname" placeholder="Relationship">
+            <input type="text" class="form-control" name="emRelationship" placeholder="Relationship">
         </div>
         <div class="form-group">
             <label> Emergency Contact Phone Number </label>
-            <input type="text" class="form-control" name="phoneNumber" placeholder="Phone Number">
+            <input type="text" class="form-control" name="emPhoneNumber" placeholder="Phone Number">
         </div>
         <div class="form-group">
             <label> Arrival Date </label>
-            <select class="form-control form-control">
+            <select class="form-control form-control" name = "arrivalDate">
                 <option> February 3rd </option>
                 <option> February 4th </option>
                 <option> February 5th </option>
@@ -41,7 +41,7 @@
 
         <div class="form-group">
             <label> Departure Date </label>
-            <select class="form-control form-control">
+            <select class="form-control form-control" name = "departureDate">
                 <option> February 6th </option>
                 <option> February 7th </option>
 
