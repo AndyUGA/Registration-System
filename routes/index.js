@@ -17,8 +17,20 @@ client.connect(err => {
 
    //Submit form
    router.post("/submitForm", (req, res) => {
+    
+    let token = req.user.token;
+    let dataArray = ["fullname", "school", "otherSchool"];
     console.log(req.body.fullname);
     console.log(req.body.school);
+    let dataDocument = {};
+    for(let i = 0; i < dataArray.length; i++)
+    {
+      dataDocument[dataArray[i]] = req.body[dataArray[i]];
+    }
+
+    console.log(dataDocument);
+
+    collection.updateOne({ token: token }, { $push: { "Element Retreat 2020" : dataDocument  } });
   });
 
 
@@ -47,7 +59,7 @@ client.connect(err => {
       if (err) {
         res.send({ error: " An error has occurred" });
       } else {
-        console.log(42, result);
+        //console.log(42, result);
        
         res.render("User/" + content, {
           result: result[0],
