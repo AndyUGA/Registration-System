@@ -8,7 +8,7 @@
 
             <div class="form-group col-xl">
                 <label> Full Name</label>
-                <input type="text" class="form-control" name="fullname" placeholder="Full Name">
+                <input type="text" class="form-control" name="fullname" >
             </div>
             <div class="form-group col-xl">
                 <label> School </label>
@@ -19,7 +19,7 @@
             </div>
             <div class="form-group col-xl">
                 <label> If other, please type:</label>
-                <input type="text" class="form-control" name="otherSchool" placeholder="Other School">
+                <input type="text" class="form-control" name="otherSchool" >
             </div>
 
 
@@ -29,15 +29,15 @@
 
             <div class="form-group col-xl">
                 <label> Emergency Contact Name </label>
-                <input type="text" class="form-control" name="emFullName" placeholder="Full Name">
+                <input type="text" class="form-control" name="emFullName" >
             </div>
             <div class="form-group col-xl">
                 <label> Emergency Contact Relationship</label>
-                <input type="text" class="form-control" name="emRelationship" placeholder="Relationship">
+                <input type="text" class="form-control" name="emRelationship" >
             </div>
             <div class="form-group col-xl">
                 <label> Emergency Contact Phone Number</label>
-                <input type="text" class="form-control" name="emFullName" placeholder="Phone Number">
+                <input type="text" class="form-control" name="emFullName" >
             </div>
         </div>
 
@@ -52,7 +52,7 @@
             </div>
             <div class="form-group col-xl">
                 <label> Estimated Arrival Time </label>
-                <input type="text" class="form-control" name="arrivalTime" placeholder="Arrival Time">
+                <input type="text" class="form-control" name="arrivalTime" >
             </div>
             <div class="form-group col-xl">
                 <label> Departure Date </label>
@@ -63,7 +63,7 @@
             </div>
             <div class="form-group col-xl">
                 <label> Estimated Departure Time </label>
-                <input type="text" class="form-control" name="departureTime" placeholder="Departure Time">
+                <input type="text" class="form-control" name="departureTime" >
             </div>
         </div>
         <div class="form-row">
@@ -85,14 +85,13 @@
 
             <div class="form-group col-xl">
                 <label> If yes, please list their names</label>
-                <input type="text" class="form-control" name="othersArrivingWith" placeholder="Names">
+                <input type="text" class="form-control" name="othersArrivingWith" >
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-group col-xl">
-                <label for="exampleFormControlSelect1"> Would you like to get dinner? If yes, please check the
-                    day(s)?</label>
+                <label for="exampleFormControlSelect1"> Would you like to get dinner?</label>
                 <select multiple class="form-control" name="gettingDinner">
                     <option> No </option>
                     <option> Friday </option>
@@ -111,32 +110,34 @@
 
             <div class="form-group col-xl">
                 <label> What do you hope to gain from staff retreat?</label>
-                <input type="text" class="form-control" name="gainFromStaffRetreat" placeholder="">
+                <input type="text" class="form-control" name="gainFromStaffRetreat" >
             </div>
         </div>
 
         <div class="form-row">
 
-            <div class="form-group col-xl">
-                <label for="exampleFormControlSelect1"> Are you Vegetarian?</label>
-                <select class="form-control" name="vegetarian">
-                    <option> Yes </option>
-                    <option> No </option>
-                </select>
+                <div class="form-group col-xl">
+                    <label for="exampleFormControlSelect1"> Are you Vegetarian?</label>
+                    <select class="form-control" name="vegetarian">
+                        <option> Yes </option>
+                        <option> No </option>
+                    </select>
+                </div>
+    
+    
+                <div class="form-group col-xl">
+                    <label> Medical Conditions / Disabilities?</label>
+                    <input type="text" class="form-control" name="medicalConditions"
+                      >
+                </div>
+    
+                <div class="form-group col-xl">
+                    <label> Allergies / Dietary Conditions (i.e. peanuts, etc...)?</label>
+                    <input type="text" class="form-control" name="allergies" >
+                </div>
             </div>
 
-
-            <div class="form-group col-xl">
-                <label> Medical Conditions / Disabilities?</label>
-                <input type="text" class="form-control" name="medicalConditions"
-                    placeholder="Medical Conditions / Disabilities">
-            </div>
-
-            <div class="form-group col-xl">
-                <label> Allergies / Dietary Conditions (i.e. eggs, dairy, peanuts, gluten-free, etc...?</label>
-                <input type="text" class="form-control" name="allergies" placeholder="Allergies">
-            </div>
-        </div>
+        <div class="form-row"></div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
