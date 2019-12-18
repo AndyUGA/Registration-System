@@ -29,10 +29,8 @@ client.connect(err => {
 
     console.log(dataDocument);
 
-    collection.updateOne({ token: token }, { $push: { "Element Retreat 2020" : dataDocument  } });
+    collection.updateOne({ token: token }, { $push: { "elementRetreat2019" : dataDocument  } });
   });
-
-
 
   //Activate Account
   router.get("/activateAccount/:token", (req, res, next) => {
