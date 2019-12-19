@@ -19,9 +19,16 @@ html {
   min-width: 65vw;
 }
 
-.borderTop {
+.colorBorderBottom {
+
   border-bottom: 2px solid blue;
 }
+
+.colorBorderBottom2 {
+  border-bottom: 2px solid yellow;
+}
+
+
 li > a:hover {
   background-color: white;
 }
