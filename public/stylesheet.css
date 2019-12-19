@@ -13,7 +13,7 @@ html {
   font-weight: 300;
 }
 .cardWidth {
-  width:40%;
+  width:40vw;
 }
 .minWidth {
   min-width: 65vw;
