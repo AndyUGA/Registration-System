@@ -19,7 +19,7 @@ client.connect(err => {
    router.post("/submitForm", (req, res) => {
     
     let token = req.user.token;
-    let dataArray = ["fullname", "school", "otherSchool","emFullName", "emRelationship","emFullName", "arrivalDate", "arrivalTime", "departureDate", "departureTime", "housingDate", "arrivingWithOthers", "othersArrivingWith", "gettingDinner", "firstTimeStaff", "gainFromStaffRetreat", "vegetarian", "medicalConditions", "allergies" ];
+    let dataArray = ["fullname", "school", "otherSchool","emFullName", "emRelationship","emPhoneNumber", "arrivalDate", "arrivalTime", "departureDate", "departureTime", "housingDate", "arrivingWithOthers", "othersArrivingWith", "gettingDinner", "firstTimeStaff", "gainFromStaffRetreat", "vegetarian", "medicalConditions", "allergies" ];
 
     let dataDocument = {};
     for(let i = 0; i < dataArray.length; i++)
