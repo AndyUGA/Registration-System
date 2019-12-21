@@ -66,9 +66,13 @@ client.connect(err => {
         res.send({ error: " An error has occurred" });
       } else {
         console.log(42, result[0].elementRetreat2019.length);
-
+        let schoolList = ["Auburn University", "Clemnson University", "Emory University", "Florida State University", "Georgia Institute of Technology", 
+        "Georgia State University", "Kennesaw State University", "Mercer University", "University of Alabama at Birmingham", "University of Central Florida", 
+        "University of Florida", "University of Memphis", "University of North Carolina at Charlotte", "University University of North Carolina at Greensboro", 
+        "University of South Carolina", "University of South Florida", "University of West Florida", "University of Tennessee at Knoxville", "Other"];
         res.render("User/" + content, {
           result: result,
+          schoolList: schoolList,
           alreadyRegistered: result[0].elementRetreat2019.length,
           title: content
         })

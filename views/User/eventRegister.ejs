@@ -12,8 +12,10 @@
                 <div class="form-group col-xl">
                     <label> School </label>
                     <select class="form-control form-control" name="school">
-                        <option> Univeristy of Georgia </option>
-                        <option> Univeristy of Florida</option>
+                        <% for (var i = 0; i < schoolList.length; i++) { %>
+                        <option> <%= schoolList[i] %> </option>
+                       
+                        <% } %>
                     </select>
                 </div>
                 <div class="form-group col-xl">
@@ -131,7 +133,7 @@
             </div>
 
             <div class="form-row"></div>
-            <button type="submit" class="btn btn-primary btn-lg btn-block"> Submit</button>
+            <button type="submit" class="btn btn-primary btn-lg btn-block mb-5"> Submit</button>
         </form>
     </div>
 </div>
