@@ -65,13 +65,22 @@ client.connect(err => {
       if (err) {
         res.send({ error: " An error has occurred" });
       } else {
-        console.log(42, result[0].elementRetreat2019.length);
+        
+        //List of schools for registration from
         let schoolList = ["Auburn University", "Clemnson University", "Emory University", "Florida State University", "Georgia Institute of Technology", 
         "Georgia State University", "Kennesaw State University", "Mercer University", "University of Alabama at Birmingham", "University of Central Florida", 
         "University of Florida", "University of Memphis", "University of North Carolina at Charlotte", "University University of North Carolina at Greensboro", 
         "University of South Carolina", "University of South Florida", "University of West Florida", "University of Tennessee at Knoxville", "Other"];
+
+        //List of Fields names for Admin View
+   
+        let fieldNames = ["Name", "School","Other School", "EM Contact Name", "EM Contact Relationship", "EM Contact Phone", "Arrival Date", "Arrival Time", 
+        "Deparature Date", "Deparature Time", "Housing Date", "Arriving with Others", "Others Arriving With", "Getting Dinner", "First Time Staff", "gainFromStaffRetreat", 
+        "vegetarian", "medicalConditions", "allergies" ];
+
         res.render("User/" + content, {
           result: result,
+          fieldNames: fieldNames,
           schoolList: schoolList,
           alreadyRegistered: result[0].elementRetreat2019.length,
           title: content

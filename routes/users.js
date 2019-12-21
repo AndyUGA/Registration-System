@@ -107,7 +107,7 @@ client.connect(err => {
                     }
                   });
 
-                  let baseURL = "https://notetracker.andytruong.dev" + "/activateAccount/";
+                  let baseURL = "https://caterwauling-puma.glitch.me" + "/activateAccount/";
                   let mailOptions = {
                     from: "BookNoteTracker@gmail.com", // sender address
                     to: email, // list of receivers

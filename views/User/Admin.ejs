@@ -5,21 +5,10 @@
     <table class="table table-bordered table-striped table-sm text-center">
       <thead class="thead-dark">
         <tr>
-
-          <th scope="col">Name</th>
-          <th scope="col">School</th>
-          <th scope="col">Other School</th>
-          <th scope="col">EM Contact Name</th>
-          <th scope="col">EM Contact Relationship</th>
-          <th scope="col">EM Contact Phone</th>
-          <th scope="col">Arrival Date</th>
-          <th scope="col">Arrival Time</th>
-          <th scope="col">Deparature Date</th>
-          <th scope="col">Deparature Time</th>
-          <th scope="col">Housing Date</th>
-          <th scope="col">Arriving with Others</th>
-          <th scope="col">Getting Dinner</th>
-          <th scope="col">First Time Staff</th>
+          <% for (var i = 0; i < fieldNames.length; i++) { %>
+          <th scope="col"><%=fieldNames[i] %> </th>
+         
+          <% } %>
         </tr>
       </thead>
       <tbody >
@@ -40,6 +29,11 @@
           <td> <%= result[i].elementRetreat2019[0].arrivingWithOthers %> </td>
           <td> <%= result[i].elementRetreat2019[0].othersArrivingWith %> </td>
           <td> <%= result[i].elementRetreat2019[0].gettingDinner %> </td>
+          <td> <%= result[i].elementRetreat2019[0].firstTimeStaff %> </td>
+          <td> <%= result[i].elementRetreat2019[0].gainFromStaffRetreat %> </td>
+          <td> <%= result[i].elementRetreat2019[0].vegetarian %> </td>
+          <td> <%= result[i].elementRetreat2019[0].medicalConditions %> </td>
+          <td> <%= result[i].elementRetreat2019[0].allergies %> </td>
         </tr>
         <% } %>
       </tbody >
