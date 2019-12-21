@@ -30,6 +30,7 @@ client.connect(err => {
     console.log(dataDocument);
 
     collection.updateOne({ token: token }, { $push: { "elementRetreat2019" : dataDocument  } });
+    res.redirect("/dashboard");
   });
 
   //Activate Account

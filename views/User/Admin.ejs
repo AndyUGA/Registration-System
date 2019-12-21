@@ -1,49 +1,49 @@
-<div class = "container-fluid">   
-<h1 class="m-4 titleAlign"> Admin View </h1>
+<div class="container-fluid">
+  <h1 class="m-4 titleAlign"> Admin View </h1>
 
-<div class="d-flex flex-column justify-content-center align-items-center table-responsive-sm">
-    <table class="table table-bordered table-striped table-sm">
-        <thead class = "thead-dark">
-          <tr>
-         
-            <th scope="col">Name</th>
-            <th scope="col">School</th>
-            <th scope="col">Other School</th>
-            <th scope="col">EM Contact Name</th>
-            <th scope="col">EM Contact Relationship</th>
-            <th scope="col">EM Contact Phone</th>
-            <th scope="col">Arrival Date</th>
-            <th scope="col">Arrival Time</th>
-            <th scope="col">Deparature Date</th>
-            <th scope="col">Deparature Time</th>
-            <th scope="col">Housing Date</th>
-            <th scope="col">Arriving with Others</th>
-            <th scope="col">Getting Dinner</th>
-            <th scope="col">First Time Staff</th>
-          </tr>
-        </thead>
-        <tbody>
-            <% for (var i = 0; i < result.length; i++) { %>
-          <tr>
-          
-            <td> <%= result[i].elementRetreat2019[0].fullname %> </td>
-            <td> <%= result[i].elementRetreat2019[0].school %> </td>
-            <td> <%= result[i].elementRetreat2019[0].otherSchool %> </td>
-            <td> <%= result[i].elementRetreat2019[0].emFullName %> </td>
-            <td> <%= result[i].elementRetreat2019[0].emRelationship %> </td>
-            <td> <%= result[i].elementRetreat2019[0].emPhoneNumber %> </td>
-            <td> <%= result[i].elementRetreat2019[0].arrivalDate %> </td>
-            <td> <%= result[i].elementRetreat2019[0].arrivalTime %> </td>
-            <td> <%= result[i].elementRetreat2019[0].departureDate %> </td>
-            <td> <%= result[i].elementRetreat2019[0].departureTime %> </td>
-            <td> <%= result[i].elementRetreat2019[0].housingDate %> </td>
-            <td> <%= result[i].elementRetreat2019[0].arrivingWithOthers %> </td>
-            <td> <%= result[i].elementRetreat2019[0].othersArrivingWith %> </td>
-            <td> <%= result[i].elementRetreat2019[0].gettingDinner %> </td>
-          </tr>
-          <% } %> 
-        </tbody>
+  <div class="d-flex flex-column justify-content-center align-items-center table-responsive-sm">
+    <table class="table table-bordered table-striped table-sm text-center">
+      <thead class="thead-dark">
+        <tr>
 
-      </table>
-</div>
+          <th scope="col">Name</th>
+          <th scope="col">School</th>
+          <th scope="col">Other School</th>
+          <th scope="col">EM Contact Name</th>
+          <th scope="col">EM Contact Relationship</th>
+          <th scope="col">EM Contact Phone</th>
+          <th scope="col">Arrival Date</th>
+          <th scope="col">Arrival Time</th>
+          <th scope="col">Deparature Date</th>
+          <th scope="col">Deparature Time</th>
+          <th scope="col">Housing Date</th>
+          <th scope="col">Arriving with Others</th>
+          <th scope="col">Getting Dinner</th>
+          <th scope="col">First Time Staff</th>
+        </tr>
+      </thead>
+      <tbody >
+        <% for (var i = 0; i < result.length; i++) { %>
+        <tr>
+
+          <td> <%= result[i].elementRetreat2019[0].fullname %> </td>
+          <td> <%= result[i].elementRetreat2019[0].school %> </td>
+          <td> <%= result[i].elementRetreat2019[0].otherSchool %> </td>
+          <td> <%= result[i].elementRetreat2019[0].emFullName %> </td>
+          <td> <%= result[i].elementRetreat2019[0].emRelationship %> </td>
+          <td> <%= result[i].elementRetreat2019[0].emPhoneNumber %> </td>
+          <td> <%= result[i].elementRetreat2019[0].arrivalDate %> </td>
+          <td> <%= result[i].elementRetreat2019[0].arrivalTime %> </td>
+          <td> <%= result[i].elementRetreat2019[0].departureDate %> </td>
+          <td> <%= result[i].elementRetreat2019[0].departureTime %> </td>
+          <td> <%= result[i].elementRetreat2019[0].housingDate %> </td>
+          <td> <%= result[i].elementRetreat2019[0].arrivingWithOthers %> </td>
+          <td> <%= result[i].elementRetreat2019[0].othersArrivingWith %> </td>
+          <td> <%= result[i].elementRetreat2019[0].gettingDinner %> </td>
+        </tr>
+        <% } %>
+      </tbody >
+
+    </table>
+  </div>
 </div>
