@@ -49,17 +49,25 @@ client.connect(err => {
     
     //Current user's email
     let email = req.user.email;
+    console.log("content is " + content);
+    let collectionCriteria = {
+      email: email
+    };
+    if(content == 'admin') {
+      collectionCriteria = {
 
+      }
+    }
 
-    collection.find({email: email}).toArray(function(err, result) {
+    collection.find(collectionCriteria).toArray(function(err, result) {
     
       if (err) {
         res.send({ error: " An error has occurred" });
       } else {
-        //console.log(42, result);
+        console.log(42, result);
        
         res.render("User/" + content, {
-          result: result[0],
+          result: result,
           title: content
         })
         
