@@ -65,10 +65,11 @@ client.connect(err => {
       if (err) {
         res.send({ error: " An error has occurred" });
       } else {
-        console.log(42, result);
-       
+        console.log(42, result[0].elementRetreat2019.length);
+
         res.render("User/" + content, {
           result: result,
+          alreadyRegistered: result[0].elementRetreat2019.length,
           title: content
         })
         
