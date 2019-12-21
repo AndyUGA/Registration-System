@@ -12,8 +12,10 @@ html {
   font-size: 5vh;
   font-weight: 300;
 }
+
+
 .cardWidth {
-  width:40vw;
+  width:20vw;
 }
 .minWidth {
   min-width: 65vw;
@@ -104,6 +106,12 @@ button {
 
 
 @media only screen and (max-width: 750px) {
+
+  .cardWidth {
+    width:80vw;
+  }
+
+
   .card2 {
     width: 100%;
     margin-top: 15px;
