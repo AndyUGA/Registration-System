@@ -75,8 +75,10 @@ client.connect(err => {
         //List of Fields names for Admin View
    
         let fieldNames = ["Name", "School","Other School", "EM Contact Name", "EM Contact Relationship", "EM Contact Phone", "Arrival Date", "Arrival Time", 
-        "Deparature Date", "Deparature Time", "Housing Date", "Arriving with Others", "Others Arriving With", "Getting Dinner", "First Time Staff", "gainFromStaffRetreat", 
-        "vegetarian", "medicalConditions", "allergies" ];
+        "Deparature Date", "Deparature Time", "Housing Date", "Arriving with Others", "Others Arriving With", "Getting Dinner", "First Time Staff", "What they hope to learn", 
+        "Vegetarian", "Medical Conditions", "Allergies" ];
+
+        console.log(81, result);
 
         res.render("User/" + content, {
           result: result,

@@ -18,7 +18,8 @@ const db = require("./config/keys").MongoURI;
 //Connect to mongoose
 mongoose.connect(
   db,
-  { useNewUrlParser: true }
+  { useNewUrlParser: true,
+    useUnifiedTopology: true }
 );
 
 //EJS layouts
