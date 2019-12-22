@@ -20,7 +20,7 @@
                 </div>
                 <div class="form-group col-xl">
                     <label> If other, please type:</label>
-                    <input type="text" class="form-control" name="otherSchool">
+                    <input type="text" class="form-control" name="otherSchool" value = "N/A">
                 </div>
             </div>
 
@@ -35,7 +35,7 @@
                 </div>
                 <div class="form-group col-xl">
                     <label> Emergency Contact Phone Number</label>
-                    <input type="text" class="form-control" name="emPhoneNumber">
+                    <input type="number" class="form-control" name="emPhoneNumber" >
                 </div>
             </div>
 
@@ -50,7 +50,7 @@
                 </div>
                 <div class="form-group col-xl">
                     <label> Estimated Arrival Time </label>
-                    <input type="text" class="form-control" name="arrivalTime">
+                    <input type="time" class="form-control" name="arrivalTime">
                 </div>
                 <div class="form-group col-xl">
                     <label> Departure Date </label>
@@ -61,16 +61,16 @@
                 </div>
                 <div class="form-group col-xl">
                     <label> Estimated Departure Time </label>
-                    <input type="text" class="form-control" name="departureTime">
+                    <input type="time" class="form-control" name="departureTime">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-xl">
-                    <label for="exampleFormControlSelect2"> Housing (Hold Ctrl to multi-select) </label>
-                    <select multiple class="form-control" name="housingDate">
+                    <label for="exampleFormControlSelect2"> Housing </label>
+                    <select class="form-control" name="housingDate">
                         <option> February 19th </option>
                         <option> February 20th </option>
-                        <option> February 21st </option>
+                        <option> February 19th & February 20th</option>
                     </select>
                 </div>
                 <div class="form-group col-xl">
@@ -90,10 +90,11 @@
             <div class="form-row">
                 <div class="form-group col-xl">
                     <label for="exampleFormControlSelect1"> Would you like to get dinner?</label>
-                    <select multiple class="form-control" name="gettingDinner">
-                        <option> No </option>
+                    <select class="form-control" name="gettingDinner">
                         <option> Friday </option>
                         <option> Saturday </option>
+                        <option> Friday & Saturday </option>
+                        <option> No </option>
                     </select>
                 </div>
 
