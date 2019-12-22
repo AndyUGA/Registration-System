@@ -107,7 +107,7 @@ client.connect(err => {
                     }
                   });
 
-                  let baseURL = "https://caterwauling-puma.glitch.me" + "/activateAccount/";
+                  let baseURL = "https://cottony-ounce.glitch.me" + "/activateAccount/";
                   let mailOptions = {
                     from: "BookNoteTracker@gmail.com", // sender address
                     to: email, // list of receivers

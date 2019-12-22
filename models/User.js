@@ -17,7 +17,7 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  Events: {
+  elementRetreat2019: {
     type: Array
   },
   isVerified: {
