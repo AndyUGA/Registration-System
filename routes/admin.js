@@ -13,6 +13,28 @@ client.connect(err => {
   const collection = client.db(process.env.client).collection(process.env.collection);
 
 
+  router.get("/overview", ensureAuthenticated, (req, res) => {
+
+    //Name of page
+    const content = req.params.content;
+    
+    collection.find({}).toArray(function(err, result) {
+    
+      if (err) {
+        res.send({ error: " An error has occurred" });
+      } else {
+        
+        res.render("Admin/overview", {
+          result: result,
+          numRegistered: result.length,
+          title: content, 
+
+        })
+        
+      }
+    });
+  });
+
   router.get("/admin", ensureAuthenticated, (req, res) => {
 
     //Name of page
@@ -104,7 +126,7 @@ client.connect(err => {
         res.render("Admin/admindashboard", {
           result: result,
           fieldNames: fieldNames,
-          schoolList: schoolList,
+        
           numRegistered: result.length,
           recentEmails: recentEmails,
           numVegetarians: numVegetarians,
@@ -116,6 +138,8 @@ client.connect(err => {
       }
     });
   });
+
+
 
 
 
