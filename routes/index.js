@@ -51,7 +51,6 @@ client.connect(err => {
 
     console.log("content is " + content);
    
-
     collection.find({}).toArray(function(err, result) {
     
       if (err) {

@@ -6,7 +6,19 @@ html {
   font-family: 'Roboto', sans-serif;
 }
 
+.adminCardBackgroundColor {
+  background-color: #009fb7;
+}
 
+.adminCardTitle {
+  color: white;
+  font-size: 25px;
+}
+
+.adminNumber {
+  color: white;
+  font-size: 40px;
+}
 
 .staffRetreatTitle {
   font-size: 5vh;

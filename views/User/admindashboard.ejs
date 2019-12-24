@@ -4,29 +4,40 @@
   <div class="container">
     <div class="row">
       <div class="col-sm">
-        <div class="card border-primary mb-3 text-center" style="max-width: 18rem;">
-          <div class="card-header">Current Applicants Registered</div>
+        <div class="card mb-3 adminCardBackgroundColor text-center">
+          <div class="adminCardTitle p-3">Current Applicants Registered</div>
+          <div class="card-body">
+            <h5 class="adminNumber"> <%= numRegistered %> </h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="card border-primary mb-3">
+          <div class="card-header">Header</div>
           <div class="card-body text-primary">
-            <h5 class="card-title"> <%= numRegistered %> </h5>
+
+            <div class="row">
+              <div class="col-sm">
+              <img src = "./Images/personIcon.png ">
+              </div>
+              <div class="col-sm d-flex align-items-center justify-content-center">
+                <h5 class="card-title">Total Payments: 3 </h5>
            
+              </div>
+            </div>
+
+
+
           </div>
         </div>
       </div>
       <div class="col-sm">
-        <div class="card border-primary mb-3" style="max-width: 18rem;">
+        <div class="card border-primary mb-3">
           <div class="card-header">Header</div>
           <div class="card-body text-primary">
             <h5 class="card-title">Primary card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm">
-        <div class="card border-primary mb-3" style="max-width: 18rem;">
-          <div class="card-header">Header</div>
-          <div class="card-body text-primary">
-            <h5 class="card-title">Primary card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
           </div>
         </div>
       </div>
