@@ -4,20 +4,19 @@ html {
   margin: 0;
   position: relative;
   font-family: 'Roboto', sans-serif;
+  background-color: white;
 }
 
 .adminCardBackgroundColor {
-  background-color: #009fb7;
+  background-color: white;
 }
 
 .adminCardTitle {
-  color: white;
   font-size: 25px;
 }
 
 .adminNumber {
-  color: white;
-  font-size: 40px;
+  font-size: 50px;
 }
 
 .staffRetreatTitle {
