@@ -42,7 +42,7 @@ client.connect(err => {
     res.redirect("/users/login");
   });
 
-
+ /*
   router.get("/admindashboard", ensureAuthenticated, (req, res) => {
 
     //Name of page
@@ -71,19 +71,41 @@ client.connect(err => {
 
         console.log(81, result);
 
+        //Get names of the last 2 users who registered most recently
+        let lastIndex = result.length - 1;
+        let recentEmails = [result[lastIndex].name, result[lastIndex-1].name];
+        
+        //Get number of vegetarians and non-vegetarians
+        let numVegetarians = 0;
+        let numNonVegetarians = 0;
+        for(let i = 0; i < result.length; i++)
+        {
+          console.log(result[i].elementRetreat2019[0].vegetarian);
+          if(result[i].elementRetreat2019[0].vegetarian == "Yes") {
+            numVegetarians++;
+          }
+          else {
+            numNonVegetarians++;
+          }
+        }
+        
 
         res.render("User/admindashboard", {
           result: result,
           fieldNames: fieldNames,
           schoolList: schoolList,
           numRegistered: result.length,
+          recentEmails: recentEmails,
+          numVegetarians: numVegetarians,
+          numNonVegetarians: numNonVegetarians,
           title: content, 
+
         })
         
       }
     });
   });
-
+*/
   //Returns view for dashboard or profile
   router.get("/:content", ensureAuthenticated, (req, res) => {
 
@@ -96,11 +118,7 @@ client.connect(err => {
     let collectionCriteria = {
       email: email
     };
-    if((content == 'admin' || content == "Admin" || content == "admindashboard")) {
-      collectionCriteria = {
-
-      }
-    }
+ 
 
     collection.find(collectionCriteria).toArray(function(err, result) {
     
@@ -108,25 +126,11 @@ client.connect(err => {
         res.send({ error: " An error has occurred" });
       } else {
         
-        //List of schools for registration from
-        let schoolList = ["Auburn University", "Clemnson University", "Emory University", "Florida State University", "Georgia Institute of Technology", 
-        "Georgia State University", "Kennesaw State University", "Mercer University", "University of Alabama at Birmingham", "University of Central Florida", 
-        "University of Florida", "University of Memphis", "University of North Carolina at Charlotte", "University University of North Carolina at Greensboro", 
-        "University of South Carolina", "University of South Florida", "University of West Florida", "University of Tennessee at Knoxville", "Other"];
-
-        //List of Fields names for Admin View
-   
-        let fieldNames = ["Name", "School","Other School", "EM Contact Name", "EM Contact Relationship", "EM Contact Phone", "Arrival Date", "Arrival Time", 
-        "Deparature Date", "Deparature Time", "Housing Date", "Arriving with Others", "Others Arriving With", "Getting Dinner", "First Time Staff", "What they want to Learn", 
-        "Vegetarian", "Medical Conditions", "Allergies" ];
-
-        console.log(81, result);
-
-
+      
+        //console.log(81, result);
+      
         res.render("User/" + content, {
           result: result,
-          fieldNames: fieldNames,
-          schoolList: schoolList,
           alreadyRegistered: result[0].elementRetreat2019.length,
           title: content, 
         })
