@@ -12,7 +12,9 @@
                 <i class="fas fa-user-friends fa-5x"></i>
               </div>
               <div class="col-sm">
-                <div class="adminNumber text-center"> <%= numRegistered %> </div>
+                <div class="adminNumber text-center">
+                  <%= numRegistered %>
+                </div>
                 <div class="adminCardTitle text-center"> Applicants Registered </div>
               </div>
             </div>
@@ -29,7 +31,9 @@
                 <i class="fas fa-money-check-alt fa-5x"></i>
               </div>
               <div class="col-sm">
-                <div class="adminNumber text-center"> <%= numRegistered %> </div>
+                <div class="adminNumber text-center">
+                  <%= numRegistered %>
+                </div>
                 <div class="adminCardTitle text-center"> Total <br> Payments </div>
               </div>
             </div>
@@ -45,8 +49,12 @@
               </div>
               <div class="col-sm">
                 <div class="adminNumber text-center"> Food</div>
-                <div class="adminCardTitle text-center"> <%= numVegetarians %> Regular </div>
-                <div class="adminCardTitle text-center"> <%= numNonVegetarians %> Vegetarian </div>
+                <div class="adminCardTitle text-center">
+                  <%= numVegetarians %> Regular
+                </div>
+                <div class="adminCardTitle text-center">
+                  <%= numNonVegetarians %> Vegetarian
+                </div>
               </div>
             </div>
           </div>
@@ -63,11 +71,10 @@
           <div class="card-body text-primary">
             <div class="row">
               <div class="col-sm d-flex justify-content-center align-items-center">
-                <i class="fas fa-user-friends fa-5x"></i>
+                <i class="fas fa-user-shield fa-5x"></i>
               </div>
-              <div class="col-sm">
-                <div class="adminNumber text-center"> <%= numRegistered %> </div>
-                <div class="adminCardTitle text-center"> Applicants Registered </div>
+              <div class="col-sm d-flex align-items-center justify-content-center">
+                <a href="/admin/attendeeinfo" class="btn btn-primary btn-lg text-center"> View All Attendee Info</a>
               </div>
             </div>
           </div>
@@ -83,14 +90,16 @@
                 <i class="fas fa-money-check-alt fa-5x"></i>
               </div>
               <div class="col-sm">
-                <div class="adminNumber text-center"> <%= numRegistered %> </div>
+                <div class="adminNumber text-center">
+                  <%= numRegistered %>
+                </div>
                 <div class="adminCardTitle text-center"> Total Payments </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    
+
     </div>
   </div>
 </div>

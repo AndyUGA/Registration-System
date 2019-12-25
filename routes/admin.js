@@ -35,7 +35,7 @@ client.connect(err => {
     });
   });
 
-  router.get("/admin", ensureAuthenticated, (req, res) => {
+  router.get("/attendeeinfo", ensureAuthenticated, (req, res) => {
 
     //Name of page
     const content = req.params.content;
@@ -67,7 +67,7 @@ client.connect(err => {
       
         
 
-        res.render("Admin/Admin", {
+        res.render("Admin/attendeeinfo", {
           result: result,
           fieldNames: fieldNames,
           schoolList: schoolList,
@@ -80,7 +80,7 @@ client.connect(err => {
     });
   });
 
-  router.get("/admindashboard", ensureAuthenticated, (req, res) => {
+  router.get("/dashboard", ensureAuthenticated, (req, res) => {
 
     //Name of page
     const content = req.params.content;
@@ -123,7 +123,7 @@ client.connect(err => {
         }
         
 
-        res.render("Admin/admindashboard", {
+        res.render("Admin/dashboard", {
           result: result,
           fieldNames: fieldNames,
         
