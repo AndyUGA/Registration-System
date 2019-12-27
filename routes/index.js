@@ -43,7 +43,6 @@ client.connect(err => {
 
   
 
-  router.get('/favicon.ico', function (req, res) {/*code*/ });
 
   //Returns view for dashboard or profile
   router.get("/:content", ensureAuthenticated, (req, res) => {
