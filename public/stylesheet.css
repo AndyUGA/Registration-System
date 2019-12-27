@@ -7,6 +7,14 @@ html {
   background-color: white;
 }
 
+.min-vh-80 {
+  min-height: 85vh !important;
+}
+
+.borderRight {
+  border-right: solid;
+}
+
 
 /*
 * Admin Dashboard 
