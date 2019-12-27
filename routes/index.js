@@ -70,6 +70,7 @@ client.connect(err => {
     collection.find(collectionCriteria).toArray(function (err, result) {
 
       if (err) {
+        console.log("Error is " + err);
         res.send({ error: " An error has occurred" });
       } else {
 
@@ -96,6 +97,7 @@ client.connect(err => {
     let author;
     collection.find({}).toArray(function (err, result) {
       if (err) {
+        console.log("Error is " + err);
         res.send({ error: " An error has occurred" });
       } else {
         const currentID = { _id: ObjectID(req.user._id) };
