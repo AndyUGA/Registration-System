@@ -56,16 +56,11 @@ client.connect(err => {
           "University of South Carolina", "University of South Florida", "University of West Florida", "University of Tennessee at Knoxville", "Other"];
 
         //List of Fields names for Admin View
-
         let fieldNames = ["Name", "School", "Other School", "EM Contact Name", "EM Contact Relationship", "EM Contact Phone", "Arrival Date", "Arrival Time",
           "Deparature Date", "Deparature Time", "Housing Date", "Arriving with Others", "Others Arriving With", "Getting Dinner", "First Time Staff", "What they want to Learn",
           "Vegetarian", "Medical Conditions", "Allergies"];
 
         console.log(42, result);
-
-        //Get names of the last 2 users who registered most recently
-
-
 
         res.render("Admin/attendeeinfo", {
           result: result,
@@ -74,8 +69,8 @@ client.connect(err => {
           numRegistered: result.length,
           title: content,
 
-        }, function(err, result) {
-          if(err) {
+        }, function (err, result) {
+          if (err) {
             console.log("Error is " + err);
           }
           else {
@@ -124,7 +119,7 @@ client.connect(err => {
         //Get number of vegetarians and non-vegetarians
         let numVegetarians = 0;
         let numNonVegetarians = 0;
-        
+
 
         try {
           for (let i = 0; i < result.length; i++) {
@@ -135,7 +130,7 @@ client.connect(err => {
             else {
               numNonVegetarians++;
             }
-            console.log(131, Object.keys(result[i].elementRetreat2019[0]).length )
+            console.log(131, Object.keys(result[i].elementRetreat2019[0]).length)
             if (Object.keys(result[i].elementRetreat2019[0]).length > 0) {
               formsCompleted++;
             }
