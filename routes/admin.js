@@ -62,25 +62,38 @@ client.connect(err => {
 
         console.log(42, result);
 
+        let tempArray = [];
+
+        
+        for(let i = 0; i < result.length; i++) {
+          try {
+            console.log(70, result[i].elementRetreat2019.length)
+            if(result[i].elementRetreat2019.length == 1) {
+              tempArray[i] = result[i];
+            }
+          }
+          catch (err) {
+            console.log(73, "Error is " + err);
+          }
+         
+         
+        }
+        
+        console.log(82, tempArray);
         res.render("Admin/attendeeinfo", {
-          result: result,
+          result: tempArray,
           fieldNames: fieldNames,
           schoolList: schoolList,
           numRegistered: result.length,
           title: content,
 
-        }, function (err, result) {
-          if (err) {
-            console.log("Error is " + err);
-          }
-          else {
-            console.log("Result is " + result);
-          }
-        })
+        });
 
       }
     });
   });
+
+
 
   router.get("/dashboard", ensureAuthenticated, (req, res) => {
 
