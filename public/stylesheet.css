@@ -29,6 +29,11 @@ html {
   text-align: center;
 }
 
+.attendeeInfoTablePadding {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
 
 /*
 * Registertion Form
@@ -114,7 +119,6 @@ li > a:hover {
   float: none; /* Added */
   margin-bottom: 10px; /* Added */
 }
-
 
 
 
