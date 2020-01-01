@@ -107,17 +107,19 @@ client.connect(err => {
                     }
                   });
 
-                  let baseURL = "https://cottony-ounce.glitch.me" + "/activateAccount/";
+                  let baseURL = "https://uvsase-registration-system.herokuapp.com";
+                  let finalURL = baseURL + "/activateAccount/";
                   let mailOptions = {
                     from: "BookNoteTracker@gmail.com", // sender address
                     to: email, // list of receivers
                     subject: "Please Confirm your Account", // Subject line
-                    html: `<p> Click on link to confirm account: ${baseURL}${token} </p>` // html body
+                    html: `<p> Click on link to confirm account: ${finalURL}${token} </p>` // html body
                   };
                   transporter.sendMail(mailOptions, (error, info) => {
                     if (error) {
                       return console.log(error);
                     }
+                    console.log("Email confirmation sent successfully!");
                   });
                 })
                 .then(user => {
@@ -125,6 +127,7 @@ client.connect(err => {
                     "success_msg",
                     `Please check your inbox for confirmation email`
                   );
+                 
                   res.redirect("/users/login");
                 })
                 .catch(err => console.log(err));
