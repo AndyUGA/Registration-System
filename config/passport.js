@@ -23,7 +23,7 @@ module.exports = function(passport) {
             return done(null, user);
           }
           else if (user.isVerified == false) {
-            return done(null, false, { message: "User Account has not been validated" });
+            return done(null, false, { message: "User Account has not been validated. Please check email to confirm your account." });
           }
            else {
             return done(null, false, { message: "Password incorrect" });

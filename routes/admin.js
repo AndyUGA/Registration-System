@@ -15,6 +15,7 @@ client.connect(err => {
 
   router.get("/overview", ensureAuthenticated, (req, res) => {
 
+    
     //Name of page
     const content = req.params.content;
 
@@ -60,11 +61,11 @@ client.connect(err => {
           "Deparature Date", "Deparature Time", "Housing Date", "Arriving with Others", "Others Arriving With", "Getting Dinner", "First Time Staff", "What they want to Learn",
           "Vegetarian", "Medical Conditions", "Allergies"];
 
-        console.log(42, result);
+        //console.log(42, result);
 
         let tempArray = [];
 
-        
+        //Only display info for users who have completed registration form
         for(let i = 0; i < result.length; i++) {
           try {
             console.log(70, result[i].elementRetreat2019.length)

@@ -51,7 +51,7 @@ client.connect(err => {
   router.get("/:content", ensureAuthenticated, (req, res) => {
 
     //Name of page
-    const content = req.params.content;
+    let content = req.params.content;
 
     //Current user's email
     let email = req.user.email;
@@ -74,7 +74,7 @@ client.connect(err => {
         res.send({ error: " An error has occurred" });
       } else {
 
-
+        content = content[0].toUpperCase() + content.substring(1);
         //console.log(81, result);
 
         res.render("User/" + content, {
