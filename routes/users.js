@@ -100,7 +100,7 @@ client.connect(err => {
                   let transporter = nodemailer.createTransport({
                     host: "smtp.gmail.com",
                     service: "smtp.gmail.com",
-                    //secure: process.env.EMAIL_SMTP_SECURE, // lack of ssl commented this. You can uncomment it.
+                    secure: false,
                     auth: {
                       user: process.env.email,
                       pass: process.env.token
