@@ -64,6 +64,11 @@ li > a:hover {
   background-color: white;
 }
 
+.minViewHeight {
+  min-height: 50vh;
+
+}
+
 
 
 /*
