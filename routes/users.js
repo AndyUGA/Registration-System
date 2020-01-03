@@ -107,7 +107,8 @@ client.connect(err => {
                     }
                   });
 
-                  let baseURL = "https://uvsase-registration-system.herokuapp.com";
+                  let baseURL = "https://cottony-ounce.glitch.me";
+               
                   let finalURL = baseURL + "/activateAccount/";
                   let mailOptions = {
                     from: "BookNoteTracker@gmail.com", // sender address
