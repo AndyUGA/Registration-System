@@ -107,7 +107,7 @@ client.connect(err => {
                     }
                   });
 
-                  let baseURL = "https://cottony-ounce.glitch.me";
+                  let baseURL = process.env.baseURL;
                
                   let finalURL = baseURL + "/activateAccount/";
                   let mailOptions = {
@@ -192,7 +192,7 @@ client.connect(err => {
           }
         });
 
-        let baseURL = "https://notetracker.andytruong.dev" + "/users/resetPassword/";
+        let baseURL = process.env.baseURL + "/users/resetPassword/";
         let mailOptions = {
           from: "BookNoteTracker@gmail.com",
           to: email,
