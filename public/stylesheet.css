@@ -40,7 +40,7 @@ html {
 */
 .formTitle {
   font-size: 5vh;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 
@@ -65,8 +65,8 @@ li > a:hover {
 }
 
 .minViewHeight {
-  min-height: 50vh;
-
+  min-height: 500px;
+  
 }
 
 
