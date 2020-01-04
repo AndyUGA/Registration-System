@@ -41,11 +41,11 @@ client.connect(err => {
     res.redirect("/users/login");
   });
 
-  
+
 
   router.get('/favicon.ico', function (req, res) {
     console.log("Favi icon loaded");
-   });
+  });
 
   //Returns view for dashboard or profile
   router.get("/:content", ensureAuthenticated, (req, res) => {
@@ -69,10 +69,15 @@ client.connect(err => {
 
     collection.find(collectionCriteria).toArray(function (err, result) {
 
+
       if (err) {
         console.log("Error is " + err);
         res.send({ error: " An error has occurred" });
-      } else {
+      }
+      else if (req.user.email == "admin@gmail.com") {
+        res.redirect("admin/overview");
+      }
+      else {
 
         let title = content[0].toUpperCase() + content.substring(1);
         //console.log(81, result);
@@ -109,15 +114,15 @@ client.connect(err => {
             author = result.BookTitle[index].Author;
           }
         }
-          res.render("User/BookNotes", {
-            result: result,
-            index: index,
-            name: name,
-            bookTitle: bookTitle,
-            title: "Notes",
-            author: author
-          });
-        
+        res.render("User/BookNotes", {
+          result: result,
+          index: index,
+          name: name,
+          bookTitle: bookTitle,
+          title: "Notes",
+          author: author
+        });
+
 
       }
     });

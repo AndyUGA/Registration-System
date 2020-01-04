@@ -4,7 +4,7 @@ const uri = require("../config/keys").MongoURI;
 const client = new MongoClient(uri, { useNewUrlParser: true });
 const express = require("express");
 const router = express.Router();
-const { ensureAuthenticated } = require("../config/auth");
+const { ensureAuthenticated, adminAuthenticated } = require("../config/auth");
 const uuidv4 = require("uuid/v4");
 
 var result;
@@ -13,7 +13,7 @@ client.connect(err => {
   const collection = client.db(process.env.client).collection(process.env.collection);
 
 
-  router.get("/overview", ensureAuthenticated, (req, res) => {
+  router.get("/overview", adminAuthenticated, (req, res) => {
 
     
     //Name of page
@@ -36,7 +36,7 @@ client.connect(err => {
     });
   });
 
-  router.get("/attendeeinfo", ensureAuthenticated, (req, res) => {
+  router.get("/attendeeinfo", adminAuthenticated, (req, res) => {
 
     //Name of page
     const content = req.params.content;
@@ -96,7 +96,7 @@ client.connect(err => {
 
 
 
-  router.get("/dashboard", ensureAuthenticated, (req, res) => {
+  router.get("/dashboard", adminAuthenticated, (req, res) => {
 
     //Name of page
     const content = req.params.content;
