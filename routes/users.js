@@ -21,7 +21,7 @@ client.connect(err => {
 
   //Login page
   router.get("/login", (req, res) => {
- 
+
     if (req.isAuthenticated()) {
       res.redirect("/dashboard");
     } else {
@@ -57,20 +57,22 @@ client.connect(err => {
     if (errors.length > 0) {
 
       res.render("Account/register", {
+        layout: "userLayout",
         errors,
         name,
         email,
         password,
         password2,
         title: "Register",
-        layout: "userLayout"
-      });
+       
+      })
     } else {
       User.findOne({ email: email }).then(user => {
         //When user exists
         if (user) {
           errors.push({ msg: "Email is already registered" });
           res.render("Account/register", {
+            layout: "userLayout",
             errors,
             name,
             email,
@@ -108,7 +110,7 @@ client.connect(err => {
                   });
 
                   let baseURL = process.env.baseURL;
-               
+
                   let finalURL = baseURL + "/activateAccount/";
                   let mailOptions = {
                     from: "BookNoteTracker@gmail.com", // sender address
@@ -128,7 +130,7 @@ client.connect(err => {
                     "success_msg",
                     `Please check your inbox for confirmation email`
                   );
-                 
+
                   res.redirect("/users/login");
                 })
                 .catch(err => console.log(err));
@@ -196,8 +198,8 @@ client.connect(err => {
         let mailOptions = {
           from: "BookNoteTracker@gmail.com",
           to: email,
-          subject: "Password Reset", 
-          html: `<p> Click on link to reset password: ${baseURL}${token} </p>` 
+          subject: "Password Reset",
+          html: `<p> Click on link to reset password: ${baseURL}${token} </p>`
         };
         transporter.sendMail(mailOptions, (error, info) => {
           if (error) {
