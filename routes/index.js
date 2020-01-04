@@ -82,12 +82,19 @@ client.connect(err => {
         let title = content[0].toUpperCase() + content.substring(1);
         //console.log(81, result);
 
-        res.render("User/" + content, {
-          result: result,
-          schoolList: schoolList,
-          alreadyRegistered: result[0].elementRetreat2019.length,
-          title: title,
-        })
+        if(result[0].elementRetreat2019.length > 0 && content == "eventRegister") {
+          req.flash("error_msg", "You have already registered for the event");
+          res.redirect("dashboard");
+        }
+        else {
+          res.render("User/" + content, {
+            result: result,
+            schoolList: schoolList,
+            alreadyRegistered: result[0].elementRetreat2019.length,
+            title: title,
+          })
+        }
+       
 
       }
     });
