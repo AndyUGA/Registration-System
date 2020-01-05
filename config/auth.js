@@ -1,7 +1,8 @@
 module.exports = {
   ensureAuthenticated: function(req, res, next) {
+   
     if (req.isAuthenticated()) {
-      console.log(4, req.user.email);
+      
       if (res.url == "/dashboard") {
         console.log("Dashboard is being requested");
       }
@@ -11,6 +12,7 @@ module.exports = {
     res.redirect("/users/login");
   },
   adminAuthenticated: function(req, res, next) {
+    
     if (req.isAuthenticated() && req.user.email == "admin@gmail.com") {
       
       if (res.url == "/dashboard") {

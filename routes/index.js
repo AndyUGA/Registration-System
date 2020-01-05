@@ -55,7 +55,7 @@ client.connect(err => {
 
     //Current user's email
     let email = req.user.email;
-    console.log("content is " + content);
+
     let collectionCriteria = {
       email: email
     };

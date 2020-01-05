@@ -15,7 +15,7 @@ client.connect(err => {
 
   router.get("/overview", adminAuthenticated, (req, res) => {
 
-    
+    console.log(18, req.params);
     //Name of page
     const content = req.params.content;
 
@@ -28,7 +28,7 @@ client.connect(err => {
         res.render("Admin/overview", {
           result: result,
           numRegistered: result.length,
-          title: content,
+          title: "Admin Overview",
 
         })
 
@@ -38,11 +38,6 @@ client.connect(err => {
 
   router.get("/attendeeinfo", adminAuthenticated, (req, res) => {
 
-    //Name of page
-    const content = req.params.content;
-
-
-    console.log("content is " + content);
 
     collection.find({}).toArray(function (err, result) {
 
@@ -86,7 +81,7 @@ client.connect(err => {
           fieldNames: fieldNames,
           schoolList: schoolList,
           numRegistered: result.length,
-          title: content,
+          title: "Admin Attendee Info",
 
         });
 
@@ -98,11 +93,6 @@ client.connect(err => {
 
   router.get("/dashboard", adminAuthenticated, (req, res) => {
 
-    //Name of page
-    const content = req.params.content;
-
-
-    console.log("content is " + content);
 
     collection.find({}).toArray(function (err, result) {
 
@@ -118,8 +108,7 @@ client.connect(err => {
           "Deparature Date", "Deparature Time", "Housing Date", "Arriving with Others", "Others Arriving With", "Getting Dinner", "First Time Staff", "What they want to Learn",
           "Vegetarian", "Medical Conditions", "Allergies"];
 
-        console.log(87, result);
-
+       
         //Get names of the last 2 users who registered most recently
         let lastIndex = result.length - 1;
         let recentEmails = [result[lastIndex].name, result[lastIndex - 1].name];
@@ -144,7 +133,7 @@ client.connect(err => {
             else {
               numNonVegetarians++;
             }
-            console.log(131, Object.keys(result[i].elementRetreat2019[0]).length)
+            
             if (Object.keys(result[i].elementRetreat2019[0]).length > 0) {
               formsCompleted++;
             }
@@ -152,7 +141,7 @@ client.connect(err => {
               formsNotCompleted++;
             }
 
-            console.log("Forms completed is " + formsCompleted);
+         
 
 
           }
@@ -173,7 +162,7 @@ client.connect(err => {
           recentEmails: recentEmails,
           numVegetarians: numVegetarians,
           numNonVegetarians: numNonVegetarians,
-          title: content,
+          title: "Admin Dashboard",
 
         })
 
