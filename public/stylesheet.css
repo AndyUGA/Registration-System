@@ -7,14 +7,38 @@ html {
   background-color: white;
 }
 
-.min-vh-80 {
-  min-height: 85vh !important;
-}
 
 .borderRight {
   border-right: solid;
 }
 
+/*
+* Nav Bar
+*/
+
+a {
+  color: white;
+}
+a:hover {
+  color: black;
+}
+
+.navBarBGColor {
+  background-color: #114b5f;
+}
+
+/* Button CSS */
+.btn-primary {
+  color: white;
+  background-color: #009fb7;
+  border-color: #009fb7;
+}
+
+.btn-primary:hover {
+  color: white;
+  background-color: #114b5f;
+  border-color: #114b5f;
+}
 
 /*
 * Admin Dashboard 
@@ -58,17 +82,15 @@ html {
 * User Dashboard
 */
 .bottomBorderBlue {
-  border-bottom: 2px solid blue;
+  border-bottom: 2px solid #009fb7;
 }
 
 .bottomBorderYellow {
-  border-bottom: 2px solid yellow;
+  border-bottom: 2px solid #fed766;
 }
 
 
-li > a:hover {
-  background-color: white;
-}
+
 
 .minViewHeight {
   min-height: 500px;
