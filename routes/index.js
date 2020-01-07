@@ -32,16 +32,6 @@ client.connect(err => {
     res.redirect("/dashboard");
   });
 
-  //Activate Account
-  router.get("/activateAccount/:token", (req, res, next) => {
-    const token = req.params.token;
-    console.log("token is " + token);
-    collection.updateOne({ token: token }, { $set: { isVerified: true } });
-    req.flash("success_msg", `Your Account has been Activated. Please login`);
-    res.redirect("/users/login");
-  });
-
-
 
   router.get('/favicon.ico', function (req, res) {
     console.log("Favi icon loaded");
@@ -85,6 +75,14 @@ client.connect(err => {
         if(result[0].elementRetreat2019.length > 0 && content == "eventRegister") {
           req.flash("error_msg", "You have already registered for the event");
           res.redirect("dashboard");
+        }
+        else if (content == "eventRegister") {
+          res.render("User/" + content, {
+            result: result,
+            schoolList: schoolList,
+            alreadyRegistered: result[0].elementRetreat2019.length,
+            title: "Registration Form",
+          })
         }
         else {
           res.render("User/" + content, {

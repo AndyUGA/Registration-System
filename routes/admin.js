@@ -77,6 +77,7 @@ client.connect(err => {
         
         console.log(82, tempArray);
         res.render("Admin/attendeeinfo", {
+          fullArray: result,
           result: tempArray,
           fieldNames: fieldNames,
           schoolList: schoolList,
@@ -88,8 +89,6 @@ client.connect(err => {
       }
     });
   });
-
-
 
   router.get("/dashboard", adminAuthenticated, (req, res) => {
 

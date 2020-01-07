@@ -175,6 +175,15 @@ client.connect(err => {
 
   });
 
+  //Activate account from activation link 
+  router.get("/activateAccount/:token", (req, res, next) => {
+    const token = req.params.token;
+    console.log("token is " + token);
+    collection.updateOne({ token: token }, { $set: { isVerified: true } });
+    req.flash("success_msg", `Your Account has been Activated. Please login`);
+    res.redirect("/users/login");
+  });
+
   //Send password reset link
   router.post("/sendResetLink", (req, res) => {
 

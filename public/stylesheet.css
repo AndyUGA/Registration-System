@@ -16,9 +16,16 @@ html {
 * Nav Bar
 */
 
+.minCardHeight {
+  min-height: 100%;
+}
 
 a:hover {
   color: black;
+}
+
+a {
+  color: #114b5f;
 }
 
 .navBarBGColor {
