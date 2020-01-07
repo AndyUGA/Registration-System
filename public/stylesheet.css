@@ -194,3 +194,18 @@ a {
     display: flex;
   }
 }
+
+
+@media only screen and (orientation: landscape) and (max-width: 1000px) { 
+
+
+.testbg {
+  height: 100vw;
+  background: url("Images/nature2.jpg");
+  background-size: cover;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
