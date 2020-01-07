@@ -1,6 +1,6 @@
 # Union of the Vietnamese Student Associations of the South East Registration System
 
-- This will be UVSASE's registration system that will allow users to make their own accounts and register for events
+This will be UVSASE's registration system that will allow for user accounts and the ability to register for events
 
 
 <p align = "middle"> Login </p>
@@ -29,4 +29,4 @@
 - JavaScript
 
 ---------------------------------------------------------------------------------------------------------------------------
-[Live Preview](/dashboard)
+[Live Preview](http://cottony-ounce.glitch.me)
