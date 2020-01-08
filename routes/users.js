@@ -34,15 +34,58 @@ client.connect(err => {
     res.render("Account/register", { title: "Register", layout: "userLayout" })
   );
 
+
+  // Login
+  router.post("/login", (req, res, next) => {
+
+    passport.authenticate("local", {
+      successRedirect: "/dashboard",
+      failureRedirect: "/users/login",
+      failureFlash: true
+    })(req, res, next);
+  });
+
+  //Forgot Password page
+  router.get("/forgotPassword", (req, res) =>
+    res.render("Account/forgotPassword", { title: "Forgot Password", layout: "userLayout" })
+  );
+
+  //Password Reset Page
+  router.get("/resetPassword/:token", (req, res) => {
+    const token = req.params.token;
+
+    collection.find({ token: token }).toArray((err, result) => {
+      console.log(result.length);
+      if (result.length != 1) {
+        req.flash("error_msg", "Invalid Page");
+        res.redirect("/users/login");
+      }
+      else {
+        res.render("Account/resetPassword", { title: "Reset Password", token: token, layout: "userLayout" })
+      }
+    });
+
+  });
+
+  //Activate account from activation link 
+  router.get("/activateAccount/:token", (req, res, next) => {
+    const token = req.params.token;
+    console.log("token is " + token);
+    collection.updateOne({ token: token }, { $set: { isVerified: true } });
+    req.flash("success_msg", `Your Account has been Activated. Please login`);
+    res.redirect("/users/login");
+  });
+
+
   //Register Post Request
   router.post("/register", (req, res) => {
     console.log(33, req);
-    const { name, email, password, password2 } = req.body;
+    const { firstName, lastName, email, password, password2 } = req.body;
 
     let errors = [];
 
     //Check required fields
-    if (!name || !email || !password || !password2) {
+    if (!firstName || !lastName ||  !email || !password || !password2) {
       errors.push({ msg: "Please fill in all fields" });
     }
 
@@ -59,12 +102,13 @@ client.connect(err => {
       res.render("Account/register", {
         layout: "userLayout",
         errors,
-        name,
+        firstName,
+        lastName,
         email,
         password,
         password2,
         title: "Register",
-       
+        
       })
     } else {
       User.findOne({ email: email }).then(user => {
@@ -74,7 +118,8 @@ client.connect(err => {
           res.render("Account/register", {
             layout: "userLayout",
             errors,
-            name,
+            firstName,
+            lastName,
             email,
             password,
             password2
@@ -82,7 +127,8 @@ client.connect(err => {
         } else {
           let token = uuidv4();
           const newUser = new User({
-            name,
+            firstName,
+            lastName,
             email,
             password,
             token
@@ -140,50 +186,7 @@ client.connect(err => {
       });
     }
   });
-
-  // Login
-  router.post("/login", (req, res, next) => {
-
-    passport.authenticate("local", {
-      successRedirect: "/dashboard",
-      failureRedirect: "/users/login",
-      failureFlash: true
-    })(req, res, next);
-  });
-
-
-
-  //Forgot Password page
-  router.get("/forgotPassword", (req, res) =>
-    res.render("Account/forgotPassword", { title: "Forgot Password", layout: "userLayout" })
-  );
-
-  //Password Reset Page
-  router.get("/resetPassword/:token", (req, res) => {
-    const token = req.params.token;
-
-    collection.find({ token: token }).toArray((err, result) => {
-      console.log(result.length);
-      if (result.length != 1) {
-        req.flash("error_msg", "Invalid Page");
-        res.redirect("/users/login");
-      }
-      else {
-        res.render("Account/resetPassword", { title: "Reset Password", token: token, layout: "userLayout" })
-      }
-    });
-
-  });
-
-  //Activate account from activation link 
-  router.get("/activateAccount/:token", (req, res, next) => {
-    const token = req.params.token;
-    console.log("token is " + token);
-    collection.updateOne({ token: token }, { $set: { isVerified: true } });
-    req.flash("success_msg", `Your Account has been Activated. Please login`);
-    res.redirect("/users/login");
-  });
-
+  
   //Send password reset link
   router.post("/sendResetLink", (req, res) => {
 

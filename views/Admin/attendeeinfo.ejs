@@ -12,28 +12,28 @@
         </tr>
       </thead>
       <tbody >
-        <% for (var i = 0; i < result.length; i++) { %>
+        <% for (var i = 0; i < tempArray.length; i++) { %>
         <tr>
 
-          <td> <%= result[i].name %> </td>
-          <td> <%= result[i].elementRetreat2019[0].school %> </td>
-          <td> <%= result[i].elementRetreat2019[0].otherSchool %> </td>
-          <td> <%= result[i].elementRetreat2019[0].emFullName %> </td>
-          <td> <%= result[i].elementRetreat2019[0].emRelationship %> </td>
-          <td> <%= result[i].elementRetreat2019[0].emPhoneNumber %> </td>
-          <td> <%= result[i].elementRetreat2019[0].arrivalDate %> </td>
-          <td> <%= result[i].elementRetreat2019[0].arrivalTime %> </td>
-          <td> <%= result[i].elementRetreat2019[0].departureDate %> </td>
-          <td> <%= result[i].elementRetreat2019[0].departureTime %> </td>
-          <td> <%= result[i].elementRetreat2019[0].housingDate %> </td>
-          <td> <%= result[i].elementRetreat2019[0].arrivingWithOthers %> </td>
-          <td> <%= result[i].elementRetreat2019[0].othersArrivingWith %> </td>
-          <td> <%= result[i].elementRetreat2019[0].gettingDinner %> </td>
-          <td> <%= result[i].elementRetreat2019[0].firstTimeStaff %> </td>
-          <td> <%= result[i].elementRetreat2019[0].gainFromStaffRetreat %> </td>
-          <td> <%= result[i].elementRetreat2019[0].vegetarian %> </td>
-          <td> <%= result[i].elementRetreat2019[0].medicalConditions %> </td>
-          <td> <%= result[i].elementRetreat2019[0].allergies %> </td>
+          <td> <%= result[i].firstName %> <%= result[i].lastName %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].school %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].otherSchool %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].emFullName %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].emRelationship %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].emPhoneNumber %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].arrivalDate %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].arrivalTime %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].departureDate %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].departureTime %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].housingDate %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].arrivingWithOthers %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].othersArrivingWith %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].gettingDinner %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].firstTimeStaff %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].gainFromStaffRetreat %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].vegetarian %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].medicalConditions %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].allergies %> </td>
         </tr>
         <% } %>
       </tbody >

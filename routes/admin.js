@@ -64,7 +64,7 @@ client.connect(err => {
         for(let i = 0; i < result.length; i++) {
           try {
             console.log(70, result[i].elementRetreat2019.length)
-            if(result[i].elementRetreat2019.length == 1) {
+            if(result[i].elementRetreat2019.length > 0) {
               tempArray[i] = result[i];
             }
           }
@@ -74,11 +74,14 @@ client.connect(err => {
          
          
         }
-        
-        console.log(82, tempArray);
+  
+        //Delete empty items in set
+        tempArray = tempArray.filter(x => x);
+     
+     
         res.render("Admin/attendeeinfo", {
-          fullArray: result,
-          result: tempArray,
+          result: result,
+          tempArray: tempArray,  
           fieldNames: fieldNames,
           schoolList: schoolList,
           numRegistered: result.length,
