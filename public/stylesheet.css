@@ -89,7 +89,9 @@ a {
   font-weight: 900;
 }
 
-
+.form-group {
+  padding-bottom: 1%;
+}
 
 
 
