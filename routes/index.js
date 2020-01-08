@@ -29,26 +29,28 @@ client.connect(err => {
     };
 
     //List of schools for registration from
-    let schoolList = ["Auburn University", "Clemnson University", "Emory University", "Florida State University", "Georgia Institute of Technology",
-      "Georgia State University", "Kennesaw State University", "Mercer University", "University of Alabama at Birmingham", "University of Central Florida",
-      "University of Florida", "University of Memphis", "University of North Carolina at Charlotte", "University University of North Carolina at Greensboro",
+    let schoolList = ["University of Georgia", "Auburn University", "Clemnson University", "Emory University", "Florida State University", "Georgia Institute of Technology",
+      "Georgia State University", "Kennesaw State University", "Mercer University", "University of Alabama at Birmingham",  "University of Central Florida", 
+      "University of Florida", "University of Memphis", "University of North Carolina at Charlotte", "University of North Carolina at Greensboro",
       "University of South Carolina", "University of South Florida", "University of West Florida", "University of Tennessee at Knoxville", "Other"];
 
 
     collection.find(collectionCriteria).toArray(function (err, result) {
-
+      console.log(39, content);
 
       if (err) {
         console.log("Error is " + err);
         res.send({ error: " An error has occurred" });
       }
-      else if (req.user.email == "admin@gmail.com") {
+      //Redirect admin account to overview page
+      else if (req.user.email == "admin@gmail.com" && content == "dashboard") {
         res.redirect("admin/overview");
       }
+     
       else {
 
         let title = content[0].toUpperCase() + content.substring(1);
-        //console.log(81, result);
+        console.log(81, title);
 
         if (result[0].elementRetreat2019.length > 0 && content == "eventRegister") {
           req.flash("error_msg", "You have already registered for the event");
@@ -85,19 +87,19 @@ client.connect(err => {
   router.post("/submitForm", (req, res) => {
 
     let token = req.user.token;
-    let dataArray = ["school", "otherSchool", "emFullName", "emRelationship", "emPhoneNumber", "arrivalDate", "arrivalTime", "departureDate", "departureTime", "housingDate", "arrivingWithOthers", "othersArrivingWith", "gettingDinner", "firstTimeStaff", "gainFromStaffRetreat", "vegetarian", "medicalConditions", "allergies"];
+    let questions = ["school", "otherSchool", "emFullName", "emRelationship", "emPhoneNumber", "arrivalDate", "arrivalTime", "departureDate", "departureTime", "housingDate", "arrivingWithOthers", "othersArrivingWith", "gettingDinner", "firstTimeStaff", "gainFromStaffRetreat", "vegetarian", "medicalConditions", "allergies"];
 
     let dataDocument = {};
-    for (let i = 0; i < dataArray.length; i++) {
-      dataDocument[dataArray[i]] = req.body[dataArray[i]];
+    for (let i = 0; i < questions.length; i++) {
+      dataDocument[questions[i]] = req.body[questions[i]];
     }
 
     console.log(dataDocument);
 
    
     let schoolList = ["Auburn University", "Clemnson University", "Emory University", "Florida State University", "Georgia Institute of Technology",
-      "Georgia State University", "Kennesaw State University", "Mercer University", "University of Alabama at Birmingham", "University of Central Florida",
-      "University of Florida", "University of Memphis", "University of North Carolina at Charlotte", "University University of North Carolina at Greensboro",
+      "Georgia State University", "Kennesaw State University", "Mercer University", "University of Alabama at Birmingham", "University of Central Florida", "University of Georgia",
+      "University of Florida", "University of Memphis", "University of North Carolina at Charlotte", "University of North Carolina at Greensboro",
       "University of South Carolina", "University of South Florida", "University of West Florida", "University of Tennessee at Knoxville", "Other"];
   
     let errors = [];
@@ -105,11 +107,10 @@ client.connect(err => {
  
  
     //Check if any fields are blank
-    
-    for(let a = 0; a < 5; a++)
+    for(let a = 0; a < questions.length; a++)
     {
       
-      if(req.body[dataArray[a]] == '') {
+      if(req.body[questions[a]] == '') {
         console.log(117);
         errors.push({ msg: "Please fill in all fields" });
         break;
