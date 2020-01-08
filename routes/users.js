@@ -19,7 +19,7 @@ client.connect(err => {
   //User model
   const User = require("../models/User");
 
-  //Login page
+  //GET Login Page
   router.get("/login", (req, res) => {
 
     if (req.isAuthenticated()) {
@@ -29,28 +29,17 @@ client.connect(err => {
     }
   });
 
-  //Register page
+  //GET Register Page
   router.get("/register", (req, res) =>
     res.render("Account/register", { title: "Register", layout: "userLayout" })
   );
 
-
-  // Login
-  router.post("/login", (req, res, next) => {
-
-    passport.authenticate("local", {
-      successRedirect: "/dashboard",
-      failureRedirect: "/users/login",
-      failureFlash: true
-    })(req, res, next);
-  });
-
-  //Forgot Password page
+  //GET Forgot Password page
   router.get("/forgotPassword", (req, res) =>
     res.render("Account/forgotPassword", { title: "Forgot Password", layout: "userLayout" })
   );
 
-  //Password Reset Page
+  //GET Password Reset Page
   router.get("/resetPassword/:token", (req, res) => {
     const token = req.params.token;
 
@@ -67,7 +56,7 @@ client.connect(err => {
 
   });
 
-  //Activate account from activation link 
+  //GET Activate account from activation link 
   router.get("/activateAccount/:token", (req, res, next) => {
     const token = req.params.token;
     console.log("token is " + token);
@@ -77,7 +66,18 @@ client.connect(err => {
   });
 
 
-  //Register Post Request
+  //POST Login Request
+  router.post("/login", (req, res, next) => {
+
+    passport.authenticate("local", {
+      successRedirect: "/dashboard",
+      failureRedirect: "/users/login",
+      failureFlash: true
+    })(req, res, next);
+  });
+
+
+  //POST Register Request
   router.post("/register", (req, res) => {
     console.log(33, req);
     const { firstName, lastName, email, password, password2 } = req.body;
@@ -85,7 +85,7 @@ client.connect(err => {
     let errors = [];
 
     //Check required fields
-    if (!firstName || !lastName ||  !email || !password || !password2) {
+    if (!firstName || !lastName || !email || !password || !password2) {
       errors.push({ msg: "Please fill in all fields" });
     }
 
@@ -108,7 +108,7 @@ client.connect(err => {
         password,
         password2,
         title: "Register",
-        
+
       })
     } else {
       User.findOne({ email: email }).then(user => {
@@ -186,7 +186,7 @@ client.connect(err => {
       });
     }
   });
-  
+
   //Send password reset link
   router.post("/sendResetLink", (req, res) => {
 

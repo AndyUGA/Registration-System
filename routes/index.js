@@ -15,28 +15,6 @@ client.connect(err => {
   //Get Welcome page
   router.get("/", (req, res) => res.render("Account/login", { layout: "userLayout", title: "Login" }));
 
-  //Submit form
-  router.post("/submitForm", (req, res) => {
-
-    let token = req.user.token;
-    let dataArray = ["fullname", "school", "otherSchool", "emFullName", "emRelationship", "emPhoneNumber", "arrivalDate", "arrivalTime", "departureDate", "departureTime", "housingDate", "arrivingWithOthers", "othersArrivingWith", "gettingDinner", "firstTimeStaff", "gainFromStaffRetreat", "vegetarian", "medicalConditions", "allergies"];
-
-    let dataDocument = {};
-    for (let i = 0; i < dataArray.length; i++) {
-      dataDocument[dataArray[i]] = req.body[dataArray[i]];
-    }
-
-    console.log(dataDocument);
-
-    collection.updateOne({ token: token }, { $push: { "elementRetreat2019": dataDocument } });
-    res.redirect("/dashboard");
-  });
-
-
-  router.get('/favicon.ico', function (req, res) {
-    console.log("Favi icon loaded");
-  });
-
   //Returns view for dashboard or profile
   router.get("/:content", ensureAuthenticated, (req, res) => {
 
@@ -72,7 +50,7 @@ client.connect(err => {
         let title = content[0].toUpperCase() + content.substring(1);
         //console.log(81, result);
 
-        if(result[0].elementRetreat2019.length > 0 && content == "eventRegister") {
+        if (result[0].elementRetreat2019.length > 0 && content == "eventRegister") {
           req.flash("error_msg", "You have already registered for the event");
           res.redirect("dashboard");
         }
@@ -92,46 +70,71 @@ client.connect(err => {
             title: title,
           })
         }
-       
-
-      }
-    });
-  });
-
-  //Get notes from selected book title
-  router.get("/getBookNotes/:index/:name", ensureAuthenticated, (req, res) => {
-    const index = req.params.index;
-    const name = req.params.name;
-
-    let bookTitle;
-    let author;
-    collection.find({}).toArray(function (err, result) {
-      if (err) {
-        console.log("Error is " + err);
-        res.send({ error: " An error has occurred" });
-      } else {
-        const currentID = { _id: ObjectID(req.user._id) };
-        for (let i = 0; i < result.length; i++) {
-          let dbID = { _id: ObjectID(result[i]._id) };
-          if (currentID._id.equals(dbID._id)) {
-            result = result[i];
-            bookTitle = result.BookTitle[index].Title;
-            author = result.BookTitle[index].Author;
-          }
-        }
-        res.render("User/BookNotes", {
-          result: result,
-          index: index,
-          name: name,
-          bookTitle: bookTitle,
-          title: "Notes",
-          author: author
-        });
 
 
       }
     });
   });
+
+  router.get('/favicon.ico', function (req, res) {
+    console.log("Favi icon loaded");
+  });
+
+
+  //Submit form
+  router.post("/submitForm", (req, res) => {
+
+    let token = req.user.token;
+    let dataArray = ["school", "otherSchool", "emFullName", "emRelationship", "emPhoneNumber", "arrivalDate", "arrivalTime", "departureDate", "departureTime", "housingDate", "arrivingWithOthers", "othersArrivingWith", "gettingDinner", "firstTimeStaff", "gainFromStaffRetreat", "vegetarian", "medicalConditions", "allergies"];
+
+    let dataDocument = {};
+    for (let i = 0; i < dataArray.length; i++) {
+      dataDocument[dataArray[i]] = req.body[dataArray[i]];
+    }
+
+    console.log(dataDocument);
+
+   
+    let schoolList = ["Auburn University", "Clemnson University", "Emory University", "Florida State University", "Georgia Institute of Technology",
+      "Georgia State University", "Kennesaw State University", "Mercer University", "University of Alabama at Birmingham", "University of Central Florida",
+      "University of Florida", "University of Memphis", "University of North Carolina at Charlotte", "University University of North Carolina at Greensboro",
+      "University of South Carolina", "University of South Florida", "University of West Florida", "University of Tennessee at Knoxville", "Other"];
+  
+    let errors = [];
+    //Check required fields
+ 
+ 
+    //Check if any fields are blank
+    
+    for(let a = 0; a < 5; a++)
+    {
+      
+      if(req.body[dataArray[a]] == '') {
+        console.log(117);
+        errors.push({ msg: "Please fill in all fields" });
+        break;
+      }
+    }
+    
+    if (errors.length > 0) {
+
+      res.render("User/EventRegister", {
+        errors,
+        schoolList: schoolList,
+        title: "Registration Form",
+      })
+    }
+    else {
+      collection.updateOne({ token: token }, { $push: { "elementRetreat2019": dataDocument } });
+      res.redirect("/dashboard");
+    }
+
+  });
+
+
+
+
+
 
   //Request to create book entry
   router.post("/createBookEntry/:name", ensureAuthenticated, (req, res, next) => {
