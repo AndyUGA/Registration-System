@@ -107,7 +107,9 @@ a {
   border-bottom: 2px solid #fed766;
 }
 
-
+.cardImg {
+  width: 100%;
+}
 
 
 .minViewHeight {
