@@ -52,9 +52,9 @@ client.connect(err => {
           "University of South Carolina", "University of South Florida", "University of West Florida", "University of Tennessee at Knoxville", "Other"];
 
         //List of Fields names for Admin View
-        let fieldNames = ["Name", "School", "Other School", "EM Contact Name", "EM Contact Relationship", "EM Contact Phone", "Arrival Date", "Arrival Time",
+        let fieldNames = ["Name", "School", "Other School", "EM Contact Name", "EM Contact Relationship", "EM Contact Phone","Committee", "Arrival Date", "Arrival Time",
           "Deparature Date", "Deparature Time", "Housing Date", "Arriving with Others", "Others Arriving With", "Getting Dinner", "First Time Staff", "What they want to Learn",
-          "Vegetarian", "Medical Conditions", "Allergies"];
+          "Vegetarian", "Medical Conditions", "Allergies", "Authorization"];
 
         //console.log(42, result);
 
