@@ -36,11 +36,32 @@
 
             <div class="form-row flex-column">
                 <div class="form-group">
+                    <label> Committee </label>
+                    <select class="form-control form-control" name="committee">
+                        <option> IT </option>
+                        <option> Registration </option>
+                        <option> Logistics </option>
+                        <option>  Programming </option>
+                        <option> Entertainment </option>
+                        <option>  Hospitality </option>
+                        <option> Media </option>
+                        <option> Marketing </option>
+                        <option> Olmypics </option>
+                      
+                   
+                    </select>
+                </div>
+               
+               
+            </div>
+
+            <div class="form-row flex-column">
+                <div class="form-group">
                     <label> Arrival Date </label>
                     <select class="form-control form-control" name="arrivalDate">
-                        <option> February 3rd </option>
-                        <option> February 4th </option>
-                        <option> February 5th </option>
+                        <option> February 28th </option>
+                        <option> February 29th </option>
+                   
                     </select>
                 </div>
                 <div class="form-group">
@@ -50,8 +71,8 @@
                 <div class="form-group">
                     <label> Departure Date </label>
                     <select class="form-control form-control" name="departureDate">
-                        <option> February 6th </option>
-                        <option> February 7th </option>
+                        <option> March 1st </option>
+                        <option> March 2nd </option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -127,6 +148,16 @@
                     <input type="text" class="form-control" name="allergies" placeholder="List all allergies">
                 </div>
             </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name = "allowAuthorization">
+                <label class="form-check-label" for="defaultCheck1">
+                  I hereby authorize UVSASE to photograph me, take motion pictures of me, take video footage of me, and/or make electronic 
+                  sound recordings of me. I authorize the use of any such photographic or electronic reproductions of me for any purpose, including, 
+                  but not limited to educational and other public media as may be deemed appropriate by UVSASE.*
+                </label>
+              </div>
+              
 
             <div class="form-row flex-column"></div>
             <button type="submit" class="btn btn-primary btn-lg btn-block mb-5"> Submit</button>

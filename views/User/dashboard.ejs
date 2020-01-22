@@ -15,10 +15,15 @@
               <p class="card-text">
                 Location: UNCC Sanford Hall
               </p>
-
+              <% if (alreadyRegistered == 0) { %>
               <div class = "align-items-end">
                 <a href="/eventRegister" class="btn btn-primary btn-lg">Register Here!</a>
               </div>
+              <% } else { %>
+                <div class = "align-items-end">
+                  <button type="button" class="btn btn-secondary btn-lg" disabled> Thank you for Registering!</button>
+                </div>
+                <% } %>
             </div>
           </div>
         </div>
