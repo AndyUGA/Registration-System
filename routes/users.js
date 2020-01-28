@@ -157,7 +157,7 @@ client.connect(err => {
 
                   let baseURL = process.env.baseURL;
 
-                  let finalURL = baseURL + "/activateAccount/";
+                  let finalURL = baseURL + "/users/activateAccount/";
                   let mailOptions = {
                     from: "BookNoteTracker@gmail.com", // sender address
                     to: email, // list of receivers
