@@ -44,7 +44,7 @@ client.connect(err => {
     const token = req.params.token;
 
     collection.find({ token: token }).toArray((err, result) => {
-      console.log(result.length);
+     
       if (result.length != 1) {
         req.flash("error_msg", "Invalid Page");
         res.redirect("/users/login");
@@ -59,7 +59,7 @@ client.connect(err => {
   //GET Activate account from activation link 
   router.get("/activateAccount/:token", (req, res, next) => {
     const token = req.params.token;
-    console.log("token is " + token);
+
     collection.updateOne({ token: token }, { $set: { isVerified: true } });
     req.flash("success_msg", `Your Account has been Activated. Please login`);
     res.redirect("/users/login");
@@ -79,7 +79,7 @@ client.connect(err => {
 
   //POST Register Request
   router.post("/register", (req, res) => {
-    console.log(33, req);
+  
     const { firstName, lastName, email, password, password2 } = req.body;
 
     let errors = [];

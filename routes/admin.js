@@ -15,7 +15,7 @@ client.connect(err => {
 
   router.get("/overview", adminAuthenticated, (req, res) => {
 
-    console.log(18, req.params);
+
     //Name of page
     const content = req.params.content;
 
@@ -56,14 +56,14 @@ client.connect(err => {
           "Deparature Date", "Deparature Time", "Housing Date", "Arriving with Others", "Others Arriving With", "Getting Dinner", "First Time Staff", "What they want to Learn",
           "Vegetarian", "Medical Conditions", "Allergies", "Authorization"];
 
-        //console.log(42, result);
+
 
         let tempArray = [];
-
+        
         //Only display info for users who have completed registration form
         for(let i = 0; i < result.length; i++) {
           try {
-            console.log(70, result[i].elementRetreat2019.length)
+          
             if(result[i].elementRetreat2019.length > 0) {
               tempArray[i] = result[i];
             }
@@ -76,8 +76,9 @@ client.connect(err => {
         }
   
         //Delete empty items in set
+        
         tempArray = tempArray.filter(x => x);
-     
+      
      
         res.render("Admin/attendeeinfo", {
           result: result,

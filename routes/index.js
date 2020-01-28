@@ -36,7 +36,7 @@ client.connect(err => {
 
 
     collection.find(collectionCriteria).toArray(function (err, result) {
-      console.log(39, content);
+    
 
       if (err) {
         console.log("Error is " + err);
@@ -50,7 +50,7 @@ client.connect(err => {
       else {
 
         let title = content[0].toUpperCase() + content.substring(1);
-        console.log(81, title);
+
 
         if (result[0].elementRetreat2019.length > 0 && content == "eventRegister") {
           req.flash("error_msg", "You have already registered for the event");
@@ -65,7 +65,7 @@ client.connect(err => {
           })
         }
         else {
-          console.log(68, result[0].elementRetreat2019.length);
+       
           res.render("User/" + content, {
             result: result,
             schoolList: schoolList,
@@ -95,7 +95,7 @@ client.connect(err => {
       dataDocument[questions[i]] = req.body[questions[i]];
     }
 
-    console.log(dataDocument);
+
 
    
     let schoolList = ["Auburn University", "Clemnson University", "Emory University", "Florida State University", "Georgia Institute of Technology",
@@ -112,7 +112,7 @@ client.connect(err => {
     {
       
       if(req.body[questions[a]] == '') {
-        console.log(117);
+     x
         errors.push({ msg: "Please fill in all fields" });
         break;
       }
