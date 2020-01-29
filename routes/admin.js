@@ -64,7 +64,7 @@ client.connect(err => {
         for(let i = 0; i < result.length; i++) {
           try {
           
-            if(result[i].elementRetreat2019.length > 0) {
+            if(result[i].elementRetreat2019.length > 0 && result[i].firstName != 'admin') {
               tempArray[i] = result[i];
             }
           }
@@ -76,7 +76,6 @@ client.connect(err => {
         }
   
         //Delete empty items in set
-        
         tempArray = tempArray.filter(x => x);
       
      
@@ -129,30 +128,35 @@ client.connect(err => {
 
         try {
           for (let i = 0; i < result.length; i++) {
-
-            if (result[i].elementRetreat2019[0].vegetarian == "Yes") {
-              numVegetarians++;
-            }
-            else {
-              numNonVegetarians++;
-            }
-            
-            if (Object.keys(result[i].elementRetreat2019[0]).length > 0) {
-              formsCompleted++;
-            }
-            else {
-              formsNotCompleted++;
-            }
-
-         
-
-
+              if (result[i].elementRetreat2019[0].vegetarian == "Yes") {
+                console.log(132, result[i].firstName);
+                numVegetarians++;
+              }
+              else {
+                console.log(136, result[i].firstName);
+                numNonVegetarians++;
+              }
           }
         }
         catch (err) {
           console.log("Error is " + err);
         }
 
+
+        try {
+        for (let i = 0; i < result.length; i++) {
+        if (Object.keys(result[i].elementRetreat2019[0]).length > 0) {
+          
+          formsCompleted++;
+        }
+        else {
+          formsNotCompleted++;
+        }
+      } 
+    } 
+    catch (err) {
+      console.log("Error is " + err);
+    }
 
 
 

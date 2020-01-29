@@ -112,7 +112,6 @@ client.connect(err => {
     {
       
       if(req.body[questions[a]] == '') {
-     x
         errors.push({ msg: "Please fill in all fields" });
         break;
       }
