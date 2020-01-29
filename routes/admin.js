@@ -129,11 +129,11 @@ client.connect(err => {
         try {
           for (let i = 0; i < result.length; i++) {
               if (result[i].elementRetreat2019[0].vegetarian == "Yes") {
-                console.log(132, result[i].firstName);
+              
                 numVegetarians++;
               }
               else {
-                console.log(136, result[i].firstName);
+                
                 numNonVegetarians++;
               }
           }
