@@ -52,36 +52,36 @@ client.connect(err => {
           "University of South Carolina", "University of South Florida", "University of West Florida", "University of Tennessee at Knoxville", "Other"];
 
         //List of Fields names for Admin View
-        let fieldNames = ["Name", "School", "Other School", "EM Contact Name", "EM Contact Relationship", "EM Contact Phone","Committee", "Arrival Date", "Arrival Time",
+        let fieldNames = ["Name", "School", "Other School", "EM Contact Name", "EM Contact Relationship", "EM Contact Phone", "Committee", "Arrival Date", "Arrival Time",
           "Deparature Date", "Deparature Time", "Housing Date", "Arriving with Others", "Others Arriving With", "Getting Dinner", "First Time Staff", "What they want to Learn",
           "Vegetarian", "Medical Conditions", "Allergies", "Authorization"];
 
 
 
         let tempArray = [];
-        
+
         //Only display info for users who have completed registration form
-        for(let i = 0; i < result.length; i++) {
+        for (let i = 0; i < result.length; i++) {
           try {
-          
-            if(result[i].elementRetreat2019.length > 0 && result[i].firstName != 'admin') {
+
+            if (result[i].elementRetreat2019.length > 0 && result[i].firstName != 'admin') {
               tempArray[i] = result[i];
             }
           }
           catch (err) {
             console.log(73, "Error is " + err);
           }
-         
-         
+
+
         }
-  
+
         //Delete empty items in set
         tempArray = tempArray.filter(x => x);
-      
-     
+
+
         res.render("Admin/attendeeinfo", {
           result: result,
-          tempArray: tempArray,  
+          tempArray: tempArray,
           fieldNames: fieldNames,
           schoolList: schoolList,
           numRegistered: result.length,
@@ -110,7 +110,7 @@ client.connect(err => {
           "Deparature Date", "Deparature Time", "Housing Date", "Arriving with Others", "Others Arriving With", "Getting Dinner", "First Time Staff", "What they want to Learn",
           "Vegetarian", "Medical Conditions", "Allergies"];
 
-       
+
         //Get names of the last 2 users who registered most recently
         let lastIndex = result.length - 1;
         let recentEmails = [result[lastIndex].name, result[lastIndex - 1].name];
@@ -128,35 +128,44 @@ client.connect(err => {
 
         try {
           for (let i = 0; i < result.length; i++) {
+          
+            if ((result[i].elementRetreat2019.length) != 0) {
+
+     
               if (result[i].elementRetreat2019[0].vegetarian == "Yes") {
-              
+           
                 numVegetarians++;
               }
               else {
-                
-                numNonVegetarians++;
+              
+                numNonVegetarians++;  
               }
+
+
+            }
+
           }
         }
         catch (err) {
-          console.log("Error is " + err);
+          console.log(147, "Error is " + err);
         }
 
 
         try {
-        for (let i = 0; i < result.length; i++) {
-        if (Object.keys(result[i].elementRetreat2019[0]).length > 0) {
-          
-          formsCompleted++;
+          for (let i = 0; i < result.length; i++) {
+            console.log(148, result[i].firstName);
+            if (Object.keys(result[i].elementRetreat2019[0]).length != null) {
+
+              formsCompleted++;
+            }
+            else {
+              formsNotCompleted++;
+            }
+          }
         }
-        else {
-          formsNotCompleted++;
+        catch (err) {
+          console.log("158 Error is " + err);
         }
-      } 
-    } 
-    catch (err) {
-      console.log("Error is " + err);
-    }
 
 
 
