@@ -154,7 +154,7 @@ client.connect(err => {
         try {
           for (let i = 0; i < result.length; i++) {
             console.log(148, result[i].firstName);
-            if (Object.keys(result[i].elementRetreat2019[0]).length != null) {
+            if (Object.keys(result[i].elementRetreat2019).length == 1) {
 
               formsCompleted++;
             }
