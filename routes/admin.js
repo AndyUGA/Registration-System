@@ -93,6 +93,27 @@ client.connect(err => {
     });
   });
 
+  router.get("/registeredAccounts", adminAuthenticated, (req, res) => {
+
+
+    collection.find({}).toArray(function (err, result) {
+
+      if (err) {
+        res.send({ error: " An error has occurred" });
+      } else {
+
+        //List of schools for registration from
+        console.log(106, result);
+
+        res.render("Admin/registeredAccounts", {
+          result: result,
+          title: "Registered Accounts",
+        });
+
+      }
+    });
+  });
+
   router.get("/dashboard", adminAuthenticated, (req, res) => {
 
 
@@ -153,7 +174,7 @@ client.connect(err => {
 
         try {
           for (let i = 0; i < result.length; i++) {
-            console.log(148, result[i].firstName);
+       
             if (Object.keys(result[i].elementRetreat2019).length == 1) {
 
               formsCompleted++;
