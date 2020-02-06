@@ -119,7 +119,7 @@ client.connect(err => {
     
     if (errors.length > 0) {
 
-      res.render("User/EventRegister", {
+      res.render("User/eventRegister", {
         errors,
         schoolList: schoolList,
         title: "Registration Form",
