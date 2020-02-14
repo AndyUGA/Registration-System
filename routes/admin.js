@@ -114,6 +114,26 @@ client.connect(err => {
     });
   });
 
+  router.get("/notCompleted", adminAuthenticated, (req, res) => {
+
+
+    collection.find({}).toArray(function (err, result) {
+
+      if (err) {
+        res.send({ error: " An error has occurred" });
+      } else {
+
+        //List of schools for registration from
+        console.log(127, result[5].elementRetreat2019.length);
+        res.render("Admin/notcompleted", {
+          result: result,
+          title: "Registered Accounts",
+        });
+
+      }
+    });
+  });
+
   router.get("/dashboard", adminAuthenticated, (req, res) => {
 
 
