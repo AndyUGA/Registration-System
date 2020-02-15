@@ -86,7 +86,7 @@ client.connect(err => {
 
     //Check required fields
     if (!firstName || !lastName || !email || !password || !password2) {
-      errors.push({ msg: "Please fill in all fields" });
+      errors.push({ msg: "Please fill in all fields!" });
     }
 
     if (password !== password2) {

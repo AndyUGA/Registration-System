@@ -2,6 +2,12 @@
     <div class="pt-5">
 
         <div class="text-center formTitle mb-5"> Element 3 Staff Retreat</div>
+
+        <p class = "pb-5">
+            <b>   
+            Disclaimer: Please make sure you complete all fields! For fields that don't apply to you, type "N/A"
+        </b>
+        </p>
         <form method="POST" action="/submitForm">
             <div class="form-row flex-column">
 
@@ -15,7 +21,7 @@
                 </div>
                 <div class="form-group">
                     <label> If other, please type:</label>
-                    <input type="text" class="form-control" name="otherSchool" value = "N/A">
+                    <input type="text" class="form-control" name="otherSchool" value="N/A">
                 </div>
             </div>
 
@@ -30,7 +36,7 @@
                 </div>
                 <div class="form-group">
                     <label> Emergency Contact Phone Number</label>
-                    <input type="number" class="form-control" name="emPhoneNumber" >
+                    <input type="number" class="form-control" name="emPhoneNumber">
                 </div>
             </div>
 
@@ -41,18 +47,18 @@
                         <option> IT </option>
                         <option> Registration </option>
                         <option> Logistics </option>
-                        <option>  Programming </option>
+                        <option> Programming </option>
                         <option> Entertainment </option>
-                        <option>  Hospitality </option>
+                        <option> Hospitality </option>
                         <option> Media </option>
                         <option> Marketing </option>
                         <option> Olympics </option>
-                      
-                   
+
+
                     </select>
                 </div>
-               
-               
+
+
             </div>
 
             <div class="form-row flex-column">
@@ -61,7 +67,7 @@
                     <select class="form-control form-control" name="arrivalDate">
                         <option> February 28th </option>
                         <option> February 29th </option>
-                   
+
                     </select>
                 </div>
                 <div class="form-group">
@@ -125,7 +131,8 @@
 
                 <div class="form-group">
                     <label> What do you hope to gain from staff retreat?</label>
-                    <input type="text" class="form-control" name="gainFromStaffRetreat" placeholder="Friendship, Values, Leadership, etc.">
+                    <input type="text" class="form-control" name="gainFromStaffRetreat"
+                        placeholder="Friendship, Values, Leadership, etc.">
                 </div>
             </div>
             <div class="form-row flex-column">
@@ -140,7 +147,8 @@
 
                 <div class="form-group">
                     <label> Medical Conditions / Disabilities?</label>
-                    <input type="text" class="form-control" name="medicalConditions" placeholder="List any medical conditions">
+                    <input type="text" class="form-control" name="medicalConditions"
+                        placeholder="List any medical conditions">
                 </div>
 
                 <div class="form-group">
@@ -150,14 +158,16 @@
             </div>
 
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" name = "allowAuthorization">
+                <input class="form-check-input" type="checkbox" name="allowAuthorization">
                 <label class="form-check-label pb-5" for="defaultCheck1">
-                  I hereby authorize UVSASE to photograph me, take motion pictures of me, take video footage of me, and/or make electronic 
-                  sound recordings of me. I authorize the use of any such photographic or electronic reproductions of me for any purpose, including, 
-                  but not limited to educational and other public media as may be deemed appropriate by UVSASE.*
+                    I hereby authorize UVSASE to photograph me, take motion pictures of me, take video footage of me,
+                    and/or make electronic
+                    sound recordings of me. I authorize the use of any such photographic or electronic reproductions of
+                    me for any purpose, including,
+                    but not limited to educational and other public media as may be deemed appropriate by UVSASE.*
                 </label>
-              </div>
-              
+            </div>
+
 
             <div class="form-row flex-column"></div>
             <button disabled type="submit" class="btn btn-primary btn-lg btn-block mb-5"> Submit</button>

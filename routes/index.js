@@ -106,13 +106,14 @@ client.connect(err => {
     let errors = [];
     //Check required fields
  
- 
+    
     //Check if any fields are blank
-    for(let a = 0; a < questions.length; a++)
+    for(let a = 0; a < questions.length - 1; a++)
     {
-      
+      console.log(115, req.body[questions[a]]);
       if(req.body[questions[a]] == '') {
-        errors.push({ msg: "Please fill in all fields" });
+     
+        errors.push({ msg: `UNSUCCESSFUL! Please fill in all fields!` });
         break;
       }
     }
