@@ -3,175 +3,229 @@
 
         <div class="text-center formTitle mb-5"> Element 3 Staff Retreat</div>
 
-        <p class = "pb-5">
-            <b>   
-            Disclaimer: Please make sure you complete all fields! For fields that don't apply to you, type "N/A"
-        </b>
-        </p>
-        <form method="POST" action="/submitForm">
-            <div class="form-row flex-column">
-
-                <div class="form-group">
-                    <label> School </label>
-                    <select class="form-control form-control" name="school">
-                        <% for (var i = 0; i < schoolList.length; i++) { %>
-                        <option> <%= schoolList[i] %> </option>
-                        <% } %>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label> If other, please type:</label>
-                    <input type="text" class="form-control" name="otherSchool" value="N/A">
-                </div>
-            </div>
-
-            <div class="form-row flex-column">
-                <div class="form-group">
-                    <label> Emergency Contact Name </label>
-                    <input type="text" class="form-control" name="emFullName">
-                </div>
-                <div class="form-group">
-                    <label> Emergency Contact Relationship</label>
-                    <input type="text" class="form-control" name="emRelationship">
-                </div>
-                <div class="form-group">
-                    <label> Emergency Contact Phone Number</label>
-                    <input type="number" class="form-control" name="emPhoneNumber">
-                </div>
-            </div>
-
-            <div class="form-row flex-column">
-                <div class="form-group">
-                    <label> Committee </label>
-                    <select class="form-control form-control" name="committee">
-                        <option> IT </option>
-                        <option> Registration </option>
-                        <option> Logistics </option>
-                        <option> Programming </option>
-                        <option> Entertainment </option>
-                        <option> Hospitality </option>
-                        <option> Media </option>
-                        <option> Marketing </option>
-                        <option> Olympics </option>
+        <p class="pb-5">
+            <b>
+                Disclaimer: Please make sure you complete all fields or the application won't submit!
+                <br><br>
+                If field doesn't apply to you, type "N/A"
 
 
-                    </select>
+            </b>
+            <form method="POST" action="/submitForm">
+                <div class="form-row flex-column">
+
+                    <div class="form-group">
+                        <label> School </label>
+                        <select class="form-control form-control" name="school">
+                            <% for (var i = 0; i < schoolList.length; i++) { %>
+                            <option> <%= schoolList[i] %> </option>
+                            <% } %>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label> If other, please type:</label>
+                        <input type="text" class="form-control" name="otherSchool" value="N/A">
+                    </div>
                 </div>
 
-
-            </div>
-
-            <div class="form-row flex-column">
-                <div class="form-group">
-                    <label> Arrival Date </label>
-                    <select class="form-control form-control" name="arrivalDate">
-                        <option> February 28th </option>
-                        <option> February 29th </option>
-
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label> Estimated Arrival Time </label>
-                    <input type="time" class="form-control" name="arrivalTime">
-                </div>
-                <div class="form-group">
-                    <label> Departure Date </label>
-                    <select class="form-control form-control" name="departureDate">
-                        <option> March 1st </option>
-                        <option> March 2nd </option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label> Estimated Departure Time </label>
-                    <input type="time" class="form-control" name="departureTime">
-                </div>
-            </div>
-            <div class="form-row flex-column">
-                <div class="form-group">
-                    <label for="exampleFormControlSelect2"> Housing </label>
-                    <select class="form-control" name="housingDate">
-                        <option> February 28th </option>
-                        <option> February 29th </option>
-                        <option> February 28th & February 29th</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1"> Are you arriving with other staff members?</label>
-                    <select class="form-control" name="arrivingWithOthers">
-                        <option> Yes </option>
-                        <option selected="selected"> No </option>
-                    </select>
+                <div class="form-row flex-column">
+                    <div class="form-group">
+                        <label> Emergency Contact Name </label>
+                        <input type="text" class="form-control" name="emFullName" id="emFullName">
+                    </div>
+                    <div class="form-group">
+                        <label> Emergency Contact Relationship</label>
+                        <input type="text" class="form-control" name="emRelationship" id="emRelationship">
+                    </div>
+                    <div class="form-group">
+                        <label> Emergency Contact Phone Number</label>
+                        <input type="number" class="form-control" name="emPhoneNumber" id="emPhoneNumber">
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label> If yes, please list their names</label>
-                    <input type="text" class="form-control" name="othersArrivingWith">
-                </div>
-            </div>
+                <div class="form-row flex-column">
+                    <div class="form-group">
+                        <label> Committee </label>
+                        <select class="form-control form-control" name="committee">
+                            <option> IT </option>
+                            <option> Eboard </option>
+                            <option> Registration </option>
+                            <option> Logistics </option>
+                            <option> Programming </option>
+                            <option> Entertainment </option>
+                            <option> Hospitality </option>
+                            <option> Development </option>
+                            <option> Media </option>
+                            <option> Marketing </option>
+                            <option> Olympics </option>
 
-            <div class="form-row flex-column">
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1"> Would you like to get dinner?</label>
-                    <select class="form-control" name="gettingDinner">
-                        <option> Friday </option>
-                        <option> Saturday </option>
-                        <option> Friday & Saturday </option>
-                        <option> No </option>
-                    </select>
-                </div>
 
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1"> Is this your first time on UVSASE staff?</label>
-                    <select class="form-control" name="firstTimeStaff">
-                        <option> Yes </option>
-                        <option> No </option>
-                    </select>
+                        </select>
+                    </div>
+
+
                 </div>
 
+                <div class="form-row flex-column">
+                    <div class="form-group">
+                        <label> Arrival Date </label>
+                        <select class="form-control form-control" name="arrivalDate">
+                            <option> February 28th </option>
+                            <option> February 29th </option>
 
-                <div class="form-group">
-                    <label> What do you hope to gain from staff retreat?</label>
-                    <input type="text" class="form-control" name="gainFromStaffRetreat"
-                        placeholder="Friendship, Values, Leadership, etc.">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label> Estimated Arrival Time </label>
+                        <input type="time" class="form-control" name="arrivalTime" id="arrivalTime">
+                    </div>
+                    <div class="form-group">
+                        <label> Departure Date </label>
+                        <select class="form-control form-control" name="departureDate">
+                            <option> March 1st </option>
+                            <option> March 2nd </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label> Estimated Departure Time </label>
+                        <input type="time" class="form-control" name="departureTime" id="departureTime">
+                    </div>
                 </div>
-            </div>
-            <div class="form-row flex-column">
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1"> Are you Vegetarian?</label>
-                    <select class="form-control" name="vegetarian">
-                        <option> Yes </option>
-                        <option selected="selected"> No </option>
-                    </select>
+                <div class="form-row flex-column">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect2"> Housing </label>
+                        <select class="form-control" name="housingDate">
+                            <option> February 28th </option>
+                            <option> February 29th </option>
+                            <option> February 28th & February 29th</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1"> Are you arriving with other staff members?</label>
+                        <select class="form-control" name="arrivingWithOthers">
+                            <option> Yes </option>
+                            <option selected="selected"> No </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label> If yes, please list their names</label>
+                        <input type="text" class="form-control" name="othersArrivingWith" id="othersArrivingWith">
+                    </div>
+                </div>
+
+                <div class="form-row flex-column">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1"> Would you like to get dinner?</label>
+                        <select class="form-control" name="gettingDinner">
+                            <option> Friday </option>
+                            <option> Saturday </option>
+                            <option> Friday & Saturday </option>
+                            <option> No </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1"> Is this your first time on UVSASE staff?</label>
+                        <select class="form-control" name="firstTimeStaff">
+                            <option> Yes </option>
+                            <option> No </option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label> What do you hope to gain from staff retreat?</label>
+                        <input type="text" class="form-control" name="gainFromStaffRetreat" id="gainFromStaffRetreat"
+                            placeholder="Friendship, Values, Leadership, etc.">
+                    </div>
+                </div>
+                <div class="form-row flex-column">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1"> Are you Vegetarian?</label>
+                        <select class="form-control" name="vegetarian">
+                            <option> Yes </option>
+                            <option selected="selected"> No </option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label> Medical Conditions / Disabilities?</label>
+                        <input type="text" class="form-control" name="medicalConditions" id="medicalConditions"
+                            placeholder="List any medical conditions">
+                    </div>
+
+                    <div class="form-group">
+                        <label> Allergies / Dietary Conditions (i.e. peanuts, etc...)?</label>
+                        <input type="text" class="form-control" name="allergies" placeholder="List all allergies"
+                            id="allergies">
+                    </div>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="allowAuthorization" id="allowAuthorization"
+                        value="">
+                    <label class="form-check-label pb-5" for="defaultCheck1">
+                        I hereby authorize UVSASE to photograph me, take motion pictures of me, take video footage of
+                        me, and/or make electronic
+                        sound recordings of me. I authorize the use of any such photographic or electronic reproductions
+                        of me for any purpose, including,
+                        but not limited to educational and other public media as may be deemed appropriate by UVSASE.*
+                    </label>
                 </div>
 
 
-                <div class="form-group">
-                    <label> Medical Conditions / Disabilities?</label>
-                    <input type="text" class="form-control" name="medicalConditions"
-                        placeholder="List any medical conditions">
-                </div>
-
-                <div class="form-group">
-                    <label> Allergies / Dietary Conditions (i.e. peanuts, etc...)?</label>
-                    <input type="text" class="form-control" name="allergies" placeholder="List all allergies">
-                </div>
-            </div>
-
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="allowAuthorization">
-                <label class="form-check-label pb-5" for="defaultCheck1">
-                    I hereby authorize UVSASE to photograph me, take motion pictures of me, take video footage of me,
-                    and/or make electronic
-                    sound recordings of me. I authorize the use of any such photographic or electronic reproductions of
-                    me for any purpose, including,
-                    but not limited to educational and other public media as may be deemed appropriate by UVSASE.*
-                </label>
-            </div>
-
-
-            <div class="form-row flex-column"></div>
-            <button disabled type="submit" class="btn btn-primary btn-lg btn-block mb-5"> Submit</button>
-        </form>
+                <div class="form-row flex-column"></div>
+                <button id="submitButton" type="submit" class="btn btn-primary btn-lg btn-block mb-5"> Submit</button>
+            </form>
     </div>
 </div>
 </div>
+
+
+<script>
+    $('#submitButton').attr('disabled', 'disabled');
+
+    //20
+    let unasweredQuestion = ["emFullName", "emRelationship", "emPhoneNumber", "arrivalTime", "departureTime",
+        "othersArrivingWith", "gainFromStaffRetreat", "medicalConditions", "allergies"];
+
+    let showButton = false;
+
+    $("input").change(function () {
+
+
+        let atLeastOneIsChecked = $('#allowAuthorization:checkbox:checked').length > 0;
+
+        if (
+            ($('#emFullName').val() != '') && ($('#emRelationship').val() != '') && ($('#emPhoneNumber').val() != '') && ($('#arrivalTime').val() != '') && ($('#departureTime').val() != '') && ($('#othersArrivingWith').val() != '')
+            && ($('#gainFromStaffRetreat').val() != '') && ($('#medicalConditions').val() != '') && ($('#allergies').val() != '') && atLeastOneIsChecked
+        ) {
+            console.log($(204, ($('#emFullName').val() != '')));
+
+            if (atLeastOneIsChecked) {
+                showButton = true;
+            }
+
+        }
+        else {
+            console.log("Disablign button");
+            showButton = false;
+            $('#submitButton').attr('disabled', 'disabled');
+        }
+
+
+
+
+
+
+        console.log(209, showButton);
+        if (showButton == true) {
+            $('#submitButton').removeAttr('disabled');
+        }
+    });
+
+
+
+</script>
