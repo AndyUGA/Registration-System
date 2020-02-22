@@ -1,6 +1,6 @@
 # Union of the Vietnamese Student Associations of the South East Registration System
 
-This is UVSASE's registration system that allows users to register for events!
+This is UVSASE's registration system that allows users to register for events and for administrators to view details of events. 
 
 
 <p align = "middle"> Login </p>
