@@ -1,0 +1,190 @@
+<div class="container">
+    <div class="pt-5">
+
+        <div class="text-center formTitle mb-5"> Element 3</div>
+
+        <p class="pb-5">
+            <b>
+                Disclaimer: Please make sure you complete all fields or the application won't submit!
+                <br><br>
+                If field doesn't apply to you, type "N/A"
+
+
+            </b>
+            <form method="POST" action="/submitElementRegistration">
+                <div class="form-row flex-column">
+
+                    <div class="form-group">
+                        <label> First Name </label>
+                        <input type="text" class="form-control" name="firstName">
+                    </div>
+                    <div class="form-group">
+                        <label> Last Name </label>
+                        <input type="text" class="form-control" name="lastName">
+                    </div>
+                </div>
+
+                <div class="form-row flex-column">
+                    <div class="form-group">
+                        <label> Email </label>
+                        <input type="email" class="form-control" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label> Phone Number</label>
+                        <input type="number" class="form-control" name="phoneNumber">
+                    </div>
+                    <div class="form-row flex-column">
+
+                        <div class="form-group">
+                            <label> School </label>
+                            <select class="form-control form-control" name="school">
+                                <% for (var i = 0; i < schoolList.length; i++) { %>
+                                <option> <%= schoolList[i] %> </option>
+                                <% } %>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row flex-column">
+                    <div class="form-group">
+                        <label> If other, please type:</label>
+                        <input type="text" class="form-control" name="otherSchool" value="N/A">
+                    </div>
+                    <div class="form-group">
+                        <label> Pronouns </label>
+                        <select class="form-control form-control" name="pronouns">
+                            <option> She/Her/Hers </option>
+                            <option> He/Him/His </option>
+                            <option> They/Them/Theirs </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row flex-column">
+                    <div class="form-group">
+                        <label> Arrival Date </label>
+                        <select class="form-control form-control" name="arrivalDate">
+                            <option> February 28th </option>
+                            <option> February 29th </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label> Date of Birth (ex. 12/23/2010)</label>
+                        <input type="text" class="form-control" name="dateOfBirth" id="dateOfBirth">
+                    </div>
+                    <div class="form-group">
+                        <label> Major </label>
+                        <input type="text" class="form-control" name="major" id="major">
+                    </div>
+                    <div class="form-group">
+                        <label> Emergency Contact (Name & Phone Number) </label>
+                        <input type="text" class="form-control" placeholder = "Name" name="name" id="name">
+                        <br>
+                        <input type="text" class="form-control" placeholder = "Phone Number" name="phoneNumber" id="phoneNumber">
+                    </div>
+                </div>
+                <div class="form-row flex-column">
+                    <div class="form-group">
+                        <label> Medical Conditions (Do you need any accommodations?) </label>
+                        <input type="text" class="form-control" name="medicalConditions" id="medicalConditions">
+                    </div>
+                    <div class="form-group">
+                        <label> Allergies </label>
+                        <input type="text" class="form-control" name="allergies" id="allergies">
+                    </div>
+
+                    <div class="form-group">
+                        <label> Vegetarian </label>
+                        <select class="form-control form-control" name="vegetarian">
+                            <option> Yes </option>
+                            <option> No  </option>
+                       
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row flex-column">
+                    <div class="form-group">
+                        <label> T-Shirt Size </label>
+                        <select class="form-control form-control" name="pronouns">
+                            <option> XS </option>
+                            <option> S </option>
+                            <option> M </option>
+                            <option> L </option>
+                            <option> XL </option>
+                            <option> XXL </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label> What do you hope to gain from the conference?</label>
+                        <input type="text" class="form-control" name="gainFromConference" id="gainFromConference">
+                    </div>
+
+
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="allowAuthorization" id="allowAuthorization"
+                        value="">
+                    <label class="form-check-label pb-5" for="defaultCheck1">
+                        I hereby authorize UVSASE to photograph me, take motion pictures of me, take video footage of
+                        me, and/or make electronic
+                        sound recordings of me. I authorize the use of any such photographic or electronic reproductions
+                        of me for any purpose, including,
+                        but not limited to educational and other public media as may be deemed appropriate by UVSASE.*
+                    </label>
+                </div>
+
+
+                <div class="form-row flex-column"></div>
+                <button id="submitButton" type="submit" class="btn btn-primary btn-lg btn-block mb-5"> Submit</button>
+            </form>
+    </div>
+</div>
+</div>
+
+
+<script>
+    $('#submitButton').attr('disabled', 'disabled');
+
+    //20
+    let unasweredQuestion = ["emFullName", "emRelationship", "emPhoneNumber", "arrivalTime", "departureTime",
+        "othersArrivingWith", "gainFromStaffRetreat", "medicalConditions", "allergies"];
+
+    let showButton = false;
+
+    $("input").change(function () {
+
+
+        let atLeastOneIsChecked = $('#allowAuthorization:checkbox:checked').length > 0;
+
+        if (
+            ($('#emFullName').val() != '') && ($('#emRelationship').val() != '') && ($('#emPhoneNumber').val() != '') && ($('#arrivalTime').val() != '') && ($('#departureTime').val() != '') && ($('#othersArrivingWith').val() != '')
+            && ($('#gainFromStaffRetreat').val() != '') && ($('#medicalConditions').val() != '') && ($('#allergies').val() != '') && atLeastOneIsChecked
+        ) {
+            console.log($(204, ($('#emFullName').val() != '')));
+
+            if (atLeastOneIsChecked) {
+                showButton = true;
+            }
+
+        }
+        else {
+            console.log("Disablign button");
+            showButton = false;
+            $('#submitButton').attr('disabled', 'disabled');
+        }
+
+
+
+
+
+
+        console.log(209, showButton);
+        if (showButton == true) {
+            $('#submitButton').removeAttr('disabled');
+        }
+    });
+
+
+
+</script>

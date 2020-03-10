@@ -133,6 +133,55 @@ client.connect(err => {
 
   });
 
+   //Submit form
+   router.post("/submitForm", (req, res) => {
+
+    let token = req.user.token;
+    let questions = ["school", "otherSchool", "emFullName", "emRelationship", "emPhoneNumber", "committee", "arrivalDate", "arrivalTime", "departureDate", "departureTime", "housingDate", "arrivingWithOthers", "othersArrivingWith", "gettingDinner", "firstTimeStaff", "gainFromStaffRetreat", "vegetarian", "medicalConditions", "allergies", "allowAuthorization"];
+
+    let dataDocument = {};
+    for (let i = 0; i < questions.length; i++) {
+      dataDocument[questions[i]] = req.body[questions[i]];
+    }
+
+
+
+   
+    let schoolList = ["Auburn University", "Clemnson University", "Emory University", "Florida State University", "Georgia Institute of Technology",
+      "Georgia State University", "Kennesaw State University", "Mercer University", "University of Alabama at Birmingham", "University of Central Florida", "University of Georgia",
+      "University of Florida", "University of Memphis", "University of North Carolina at Charlotte", "University of North Carolina at Greensboro",
+      "University of South Carolina", "University of South Florida", "University of West Florida", "University of Tennessee at Knoxville", "Other"];
+  
+    let errors = [];
+    //Check required fields
+ 
+    
+    //Check if any fields are blank
+    for(let a = 0; a < questions.length - 1; a++)
+    {
+      console.log(115, req.body[questions[a]]);
+      if(req.body[questions[a]] == '') {
+     
+        errors.push({ msg: `UNSUCCESSFUL! Please fill in all fields!` });
+        break;
+      }
+    }
+    
+    if (errors.length > 0) {
+
+      res.render("User/eventRegister", {
+        errors,
+        schoolList: schoolList,
+        title: "Registration Form",
+      })
+    }
+    else {
+      collection.updateOne({ token: token }, { $push: { "elementRetreat2019": dataDocument } });
+      res.redirect("/dashboard");
+    }
+
+  });
+
 
 
 
