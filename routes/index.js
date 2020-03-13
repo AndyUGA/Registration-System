@@ -24,6 +24,7 @@ client.connect(err => {
     //Current user's email
     let email = req.user.email;
 
+    console.log(27, email);
     let collectionCriteria = {
       email: email
     };
@@ -50,9 +51,9 @@ client.connect(err => {
       else {
 
         let title = content[0].toUpperCase() + content.substring(1);
+        console.log(53, result);
 
-
-        if (result[0].elementRetreat2019.length > 0 && content == "eventRegister") {
+        if (result[0].element3.length > 0 && content == "eventRegister") {
           req.flash("error_msg", "You have already registered for the event");
           res.redirect("dashboard");
         }
@@ -60,7 +61,7 @@ client.connect(err => {
           res.render("User/" + content, {
             result: result,
             schoolList: schoolList,
-            alreadyRegistered: result[0].elementRetreat2019.length,
+            alreadyRegistered: result[0].element3.length,
             title: "Registration Form",
           })
         }
@@ -69,7 +70,7 @@ client.connect(err => {
           res.render("User/" + content, {
             result: result,
             schoolList: schoolList,
-            alreadyRegistered: result[0].elementRetreat2019.length,
+            alreadyRegistered: result[0].element3.length,
             title: title,
           })
         }
@@ -127,14 +128,14 @@ client.connect(err => {
       })
     }
     else {
-      collection.updateOne({ token: token }, { $push: { "elementRetreat2019": dataDocument } });
+      collection.updateOne({ token: token }, { $push: { "element3": dataDocument } });
       res.redirect("/dashboard");
     }
 
   });
 
    //Submit form
-   router.post("/submitForm", (req, res) => {
+   router.post("/submitElementRegistration", (req, res) => {
 
     let token = req.user.token;
     let questions = ["school", "otherSchool", "emFullName", "emRelationship", "emPhoneNumber", "committee", "arrivalDate", "arrivalTime", "departureDate", "departureTime", "housingDate", "arrivingWithOthers", "othersArrivingWith", "gettingDinner", "firstTimeStaff", "gainFromStaffRetreat", "vegetarian", "medicalConditions", "allergies", "allowAuthorization"];
@@ -176,7 +177,7 @@ client.connect(err => {
       })
     }
     else {
-      collection.updateOne({ token: token }, { $push: { "elementRetreat2019": dataDocument } });
+      collection.updateOne({ token: token }, { $push: { "element3": dataDocument } });
       res.redirect("/dashboard");
     }
 

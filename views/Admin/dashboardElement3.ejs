@@ -1,0 +1,124 @@
+<div class=" text-center">
+  <h1 class="m-4 "> Admin Dashboard </h1>
+  <div class="container">
+    <div class="row">
+
+      <div class="col-sm">
+        <div class="card  mb-3 border-primary">
+          <div class="card-body text-primary">
+            <div class="row">
+              <div class="col-sm d-flex justify-content-center align-items-center">
+                <i class="fas fa-user-shield fa-5x"></i>
+              </div>
+              <div class="col-sm d-flex align-items-center justify-content-center">
+                <a href="/elementRegister" class="btn btn-primary text-center mt-3">  Registration Form</a>
+              </div>
+              <div class="col-sm d-flex align-items-center justify-content-center">
+                <a href="/admin/registeredAccounts" class="btn btn-primary text-center mt-3"> Registered Accounts</a>
+              </div>
+              <div class="col-sm d-flex align-items-center justify-content-center">
+                <a href="/admin/attendeeinfo" class="btn btn-primary text-center mt-3"> Attendee Registration Details</a>
+              </div>
+              <div class="col-sm d-flex align-items-center justify-content-center">
+                <a href="/admin/notcompleted" class="btn btn-primary text-center mt-3"> 
+                  Not Completed Registraiton
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+
+      <div class="col-sm">
+        <div class="card  mb-3 border-primary">
+          <div class="card-body text-primary">
+            <div class="row">
+              <div class="col-sm d-flex justify-content-center align-items-center">
+                <i class="fas fa-user-friends fa-5x"></i>
+              </div>
+              <div class="col-sm">
+                <div class="adminNumber">
+                  <%= numRegistered %>
+                </div>
+                <div class="adminCardTitle"> Accounts Registered </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-sm">
+        <div class="card  mb-3 border-primary">
+          <div class="card-body text-primary">
+            <div class="row">
+              <div class="col-sm d-flex justify-content-center align-items-center">
+                <i class="fab fa-wpforms fa-5x"></i>
+              </div>
+              <div class="col-sm">
+                <div class="adminNumber">
+                  <%= formsCompleted - 1%>
+                </div>
+                <div class="adminCardTitle"> Forms <br> Completed </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="card  mb-3 border-primary">
+          <div class="card-body text-primary">
+            <div class="row">
+              <div class="col-sm d-flex justify-content-center align-items-center">
+                <i class="fas fa-utensils fa-5x"></i>
+              </div>
+              <div class="col-sm">
+                <div class="adminNumber"> Food</div>
+                <div class="adminCardTitle">
+                  <%= numNonVegetarians - 1%> Regular
+                </div>
+                <div class="adminCardTitle">
+                  <%=  numVegetarians %> Vegetarian
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 
+      <div class="col-sm">
+        <div class="card  mb-3 border-primary">
+          <div class="card-body text-primary">
+            <div class="row">
+              <div class="col-sm d-flex justify-content-center align-items-center">
+                <i class="fas fa-money-check-alt fa-5x"></i>
+              </div>
+              <div class="col-sm">
+                <div class="adminNumber">
+                  <%= numRegistered %>
+                </div>
+                <div class="adminCardTitle"> Total <br> Payments </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        -->
+
+    </div>
+  </div>
+
+  
+
+
+
+    </div>
+  </div>
+</div>

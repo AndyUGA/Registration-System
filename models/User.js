@@ -21,7 +21,7 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  elementRetreat2019: {
+  element3: {
     type: Array
   },
   isVerified: {
@@ -32,9 +32,14 @@ const UserSchema = new mongoose.Schema({
   token: {
     type: String,
     required: true,
+  }, 
+  points: {
+    type: Number,
+    required:true, 
+    default: 0
   }
 });
 
-const User = mongoose.model("uvsaseUsers", UserSchema);
+const User = mongoose.model(process.env.collection, UserSchema);
 
 module.exports = User;
