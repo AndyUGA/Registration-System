@@ -138,14 +138,30 @@ client.connect(err => {
    router.post("/submitElementRegistration", (req, res) => {
 
     let token = req.user.token;
-    let questions = ["school", "otherSchool", "emFullName", "emRelationship", "emPhoneNumber", "committee", "arrivalDate", "arrivalTime", "departureDate", "departureTime", "housingDate", "arrivingWithOthers", "othersArrivingWith", "gettingDinner", "firstTimeStaff", "gainFromStaffRetreat", "vegetarian", "medicalConditions", "allergies", "allowAuthorization"];
+    let questions = ["firstName", "lastName", "email", "phoneNumber", "school", "pronouns", 
+    "dateOfBirth", "major", "name", "phoneNumber", "medicalConditions", "allergies", 
+    "dietaryRestrictions", "tshirtSize", "gainFromConference", "allowAuthorization"];
+
+
 
     let dataDocument = {};
     for (let i = 0; i < questions.length; i++) {
       dataDocument[questions[i]] = req.body[questions[i]];
     }
 
-
+    let roommateQuesitons = [
+      "roommatePreferenceName",
+      "neat",
+      "cleanliness",
+      "typeOfSleeper",
+      "snore",
+      "genderPreference",
+      "sleepTime",
+      "ACPreference",
+      "noiseLevel",
+      "noisePreference",
+      "petPeeve"
+    ];
 
    
     let schoolList = ["Auburn University", "Clemnson University", "Emory University", "Florida State University", "Georgia Institute of Technology",
