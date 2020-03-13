@@ -1,0 +1,45 @@
+<div class="container-fluid attendeeInfoTablePadding">
+  <h1 class="m-4 text-center"> Applications </h1>
+
+  <div class="d-flex flex-column justify-content-center align-items-center table-responsive">
+    <table class="table table-bordered table-striped table-sm text-center">
+      <thead class="thead-dark">
+        <tr>
+          <% for (var i = 0; i < fieldNames.length; i++) { %>
+          <th scope="col"><%=fieldNames[i] %> </th>
+         
+          <% } %>
+        </tr>
+      </thead>
+      <tbody >
+        <% for (var i = 0; i < tempArray.length; i++) { %>
+        <tr>
+
+          <td> <%= tempArray[i].firstName %> <%= tempArray[i].lastName %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].school %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].otherSchool %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].emFullName %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].emRelationship %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].emPhoneNumber %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].committee %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].arrivalDate %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].arrivalTime %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].departureDate %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].departureTime %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].housingDate %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].arrivingWithOthers %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].othersArrivingWith %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].gettingDinner %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].firstTimeStaff %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].gainFromStaffRetreat %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].vegetarian %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].medicalConditions %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].allergies %> </td>
+          <td> <%= tempArray[i].elementRetreat2019[0].allowAuthorization %> </td>
+        </tr>
+        <% } %>
+      </tbody >
+
+    </table>
+  </div>
+</div>

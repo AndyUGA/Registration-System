@@ -11,6 +11,7 @@ var result;
 
 client.connect(err => {
 
+  //Collection for Element 3 attendees
   const collection = client.db(process.env.client).collection(process.env.collection);
 
 
@@ -36,6 +37,63 @@ client.connect(err => {
       }
     });
   });
+
+  router.get("/attendeeinfoElement3", adminAuthenticated, (req, res) => {
+
+
+    collection.find({}).toArray(function (err, result) {
+
+      if (err) {
+        res.send({ error: " An error has occurred" });
+      } else {
+
+        //List of schools for registration from
+        let schoolList = ["Auburn University", "Clemnson University", "Emory University", "Florida State University", "Georgia Institute of Technology",
+          "Georgia State University", "Kennesaw State University", "Mercer University", "University of Alabama at Birmingham", "University of Central Florida",
+          "University of Florida", "University of Memphis", "University of North Carolina at Charlotte", "University University of North Carolina at Greensboro",
+          "University of South Carolina", "University of South Florida", "University of West Florida", "University of Tennessee at Knoxville", "Other"];
+
+        //List of Fields names for Admin View
+        let fieldNames = ["First Name", "Last Name", "Email", "Phone Number", "School", "If other, please type:", "Pronouns", "Date of Birth", "Major",
+          "EM Contact Name", "EM Contact Phone", "Medical Conditions", "Allergies", "Vegetarian", "T-shirt Size", "What to gain", "Media Release"];
+
+
+
+        let tempArray = [];
+
+        //Only display info for users who have completed registration form
+        for (let i = 0; i < result.length; i++) {
+          try {
+
+            if (result[i].elementRetreat2019.length > 0 && result[i].firstName != 'admin') {
+              tempArray[i] = result[i];
+            }
+          }
+          catch (err) {
+            console.log(73, "Error is " + err);
+          }
+
+
+        }
+
+        //Delete empty items in set
+        tempArray = tempArray.filter(x => x);
+
+
+        res.render("Admin/attendeeinfoElement3", {
+          result: result,
+          tempArray: tempArray,
+          fieldNames: fieldNames,
+          schoolList: schoolList,
+          numRegistered: result.length,
+          title: "Admin Attendee Info",
+
+        });
+
+      }
+    });
+  });
+
 
   router.get("/attendeeinfo", adminAuthenticated, (req, res) => {
 
