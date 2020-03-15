@@ -140,8 +140,8 @@ client.connect(err => {
     let questions = ["firstName", "lastName", "email", "phoneNumber", "school", "pronouns",
       "dateOfBirth", "major", "name", "phoneNumber", "medicalConditions", "allergies",
       "dietaryRestrictions", "tshirtSize", "gainFromConference", "allowAuthorization",
-      "roommatePreferenceName", "display ", "cleanliness", "typeOfSleeper ", "snore", "genderPreference",
-      "sleepTime", "ACPreference", "noiseLevel ", "noisePreference ", " petPeeve",
+      "roommatePreferenceName", "neat", "cleanliness", "typeOfSleeper", "snore", "genderPreference",
+      "sleepTime", "ACPreference", "noiseLevel", "noisePreference", "petPeeve",
     ];
 
 
@@ -150,19 +150,6 @@ client.connect(err => {
       dataDocument[questions[i]] = req.body[questions[i]];
     }
 
-    let roommateQuesitons = [
-      "roommatePreferenceName",
-      "neat",
-      "cleanliness",
-      "typeOfSleeper",
-      "snore",
-      "genderPreference",
-      "sleepTime",
-      "ACPreference",
-      "noiseLevel",
-      "noisePreference",
-      "petPeeve"
-    ];
 
 
     let schoolList = ["Auburn University", "Clemnson University", "Emory University", "Florida State University", "Georgia Institute of Technology",
@@ -177,11 +164,7 @@ client.connect(err => {
     //Check if any fields are blank
     for (let a = 0; a < questions.length - 1; a++) {
       console.log(115, req.body[questions[a]]);
-      if (req.body[questions[a]] == '') {
-
-        errors.push({ msg: `UNSUCCESSFUL! Please fill in all fields!` });
-        break;
-      }
+     
     }
 
     if (errors.length > 0) {
@@ -193,6 +176,7 @@ client.connect(err => {
       })
     }
     else {
+      console.log(192, dataDocument);
       collection.updateOne({ token: token }, { $push: { "element3": dataDocument } });
       res.redirect("/dashboard");
     }
