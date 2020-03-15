@@ -16,28 +16,28 @@
 
                     <div class="form-group">
                         <label> First Name </label>
-                        <input type="text" class="form-control" name="firstName">
+                        <input type="text" class="form-control" name="firstName" id="firstName">
                     </div>
                     <div class="form-group">
                         <label> Last Name </label>
-                        <input type="text" class="form-control" name="lastName">
+                        <input type="text" class="form-control" name="lastName" id="lastName">
                     </div>
                 </div>
 
                 <div class="form-row flex-column">
                     <div class="form-group">
                         <label> Email </label>
-                        <input type="email" class="form-control" name="email">
+                        <input type="email" class="form-control" name="email" id="email">
                     </div>
                     <div class="form-group">
                         <label> Phone Number</label>
-                        <input type="number" class="form-control" name="phoneNumber">
+                        <input type="number" class="form-control" name="phoneNumber" id="phoneNumber">
                     </div>
                     <div class="form-row flex-column">
 
                         <div class="form-group">
                             <label> School </label>
-                            <select class="form-control form-control" name="school">
+                            <select class="form-control form-control" name="school" id="school">
                                 <% for (var i = 0; i < schoolList.length; i++) { %>
                                 <option> <%= schoolList[i] %> </option>
                                 <% } %>
@@ -48,11 +48,11 @@
                 <div class="form-row flex-column">
                     <div class="form-group">
                         <label> If other, please type:</label>
-                        <input type="text" class="form-control" name="otherSchool" value="N/A">
+                        <input type="text" class="form-control" name="otherSchool" value="N/A" id="otherSchool">
                     </div>
                     <div class="form-group">
                         <label> Pronouns </label>
-                        <select class="form-control form-control" name="pronouns">
+                        <select class="form-control form-control" name="pronouns" id="pronouns">
                             <option> She/Her/Hers </option>
                             <option> He/Him/His </option>
                             <option> They/Them/Theirs </option>
@@ -71,12 +71,12 @@
                     </div>
                     <div class="form-group">
                         <label> Emergency Contact Name </label>
-                        <input type="text" class="form-control" placeholder="Name" name="name" id="name">
+                        <input type="text" class="form-control" placeholder="Name" name="name" id="EMName">
                     </div>
 
                     <div class="form-group">
                         <label> Emergency Contact Phone Number </label>
-                        <input type="text" class="form-control" placeholder="Phone Number" name="phoneNumber"
+                        <input type="text" class="form-control" placeholder="Phone Number" name="EMPhoneNumber"
                             id="phoneNumber">
                     </div>
                 </div>
@@ -92,14 +92,14 @@
 
                     <div class="form-group">
                         <label> Dietary Restrictions </label>
-                        <input type="text" class="form-control" name="dietaryRestrictions" id="allergies">
+                        <input type="text" class="form-control" name="dietaryRestrictions" id="dietaryRestrictions">
                     </div>
                 </div>
 
                 <div class="form-row flex-column">
                     <div class="form-group">
                         <label> T-Shirt Size </label>
-                        <select class="form-control form-control" name="tshirtSize">
+                        <select class="form-control form-control" name="tshirtSize" id="tshirtSize">
                             <option> XS </option>
                             <option> S </option>
                             <option> M </option>
@@ -108,7 +108,7 @@
                             <option> XXL </option>
                         </select>
                     </div>
-               
+
                     <div class="form-group">
                         <label> What do you hope to gain from the conference?</label>
                         <input type="text" class="form-control" name="gainFromConference" id="gainFromConference">
@@ -116,138 +116,132 @@
                 </div>
 
 
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="allowAuthorization"
-                            id="allowAuthorization" value="">
-                        <label class="form-check-label pb-5" for="defaultCheck1">
-                            I hereby authorize UVSASE to photograph me, take motion pictures of me, take video footage
-                            of
-                            me, and/or make electronic
-                            sound recordings of me. I authorize the use of any such photographic or electronic
-                            reproductions
-                            of me for any purpose, including,
-                            but not limited to educational and other public media as may be deemed appropriate by
-                            UVSASE.*
-                        </label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="allowAuthorization" id="allowAuthorization"
+                        value="">
+                    <label class="form-check-label pb-5" for="defaultCheck1">
+                        I hereby authorize UVSASE to photograph me, take motion pictures of me, take video footage
+                        of
+                        me, and/or make electronic
+                        sound recordings of me. I authorize the use of any such photographic or electronic
+                        reproductions
+                        of me for any purpose, including,
+                        but not limited to educational and other public media as may be deemed appropriate by
+                        UVSASE.*
+                    </label>
+                </div>
+
+                <div class="text-center formTitle mb-5"> Roommate Matching Questions</div>
+
+
+                <div class="form-row flex-column">
+                    <div class="form-group">
+                        <label> Do you have a roomate preference? If yes, list their full name.</label>
+                        <input type="text" class="form-control" name="roommatePreferenceName"
+                            id="roommatePreferenceName">
+                    </div>
+                    <div class="form-group">
+                        <label> I am ... </label>
+                        <select class="form-control form-control" name="neat" id="neat">
+                            <option selected disabled hidden style='display: none' value=''></option>
+                            <option> Always Neat </option>
+                            <option> Sometimes Neat </option>
+                            <option> A combination of both neat and messy</option>
+                            <option> Sometimes Messy </option>
+                            <option> Always Messy </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label> In regards to cleanliness, I expect my roommate to be ...</label>
+                        <select class="form-control form-control" name="cleanliness" id="cleanliness">
+                            <option selected disabled hidden style='display: none' value=''></option>
+                            <option> Always Neat </option>
+                            <option> Sometimes Neat </option>
+                            <option> A combination of both neat and messy</option>
+                            <option> Sometimes Messy </option>
+                            <option> Always Messy </option>
+                            <option> No preference </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label> Are you a light sleeper or deep sleeper? </label>
+                        <select class="form-control form-control" name="typeOfSleeper" id="typeOfSleeper">
+                            <option selected disabled hidden style='display: none' value=''></option>
+                            <option> Light sleeper </option>
+                            <option> Deep sleeper </option>
+                        </select>
                     </div>
 
-                    <div class="text-center formTitle mb-5"> Roommate Matching Questions</div>
 
-                    
-                    <div class="form-row flex-column">
-                        <div class="form-group">
-                            <label> Do you have a roomate preference? If yes, list their full name.</label>
-                            <input type="text" class="form-control" name="roommatePreferenceName">
-                        </div> 
-                        <div class="form-group">
-                            <label> I am ... </label>
-                            <select class="form-control form-control" name="neat">
-                                <option selected disabled hidden style='display: none' value=''></option>
-                                <option> Always Neat </option>
-                                <option> Sometimes Neat </option>
-                                <option> A combination of both neat and messy</option>
-                                <option> Sometimes Messy </option>
-                                <option> Always Messy </option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label> In regards to cleanliness, I expect my roommate to be ...</label>
-                            <select class="form-control form-control" name="cleanliness">
-                                <option selected disabled hidden style='display: none' value=''></option>
-                                <option> Always Neat </option>
-                                <option> Sometimes Neat </option>
-                                <option> A combination of both neat and messy</option>
-                                <option> Sometimes Messy </option>
-                                <option> Always Messy </option>
-                                <option> No preference </option>
-                            </select>
-                        </div> 
-                        <div class="form-group">
-                            <label> Are you a light sleeper or deep sleeper? </label>
-                            <select class="form-control form-control" name="typeOfSleeper">
-                                <option selected disabled hidden style='display: none' value=''></option>
-                                <option> Light sleeper </option>
-                                <option> Deep sleeper </option>
-                            </select>
-                        </div>
-
-
-                        <div class="form-group">
-                            <label> Do you snore? </label>
-                            <select class="form-control form-control" name="snore">
-                                <option selected disabled hidden style='display: none' value=''></option>
-                                <option> Yes  </option>
-                                <option> No </option>
-                                <option> I don't know </option>
-                            </select>
-                        </div>
-
-                        
-                        <div class="form-group">
-                            <label> Are you open to having a roommate of the opposite gender? </label>
-                            <select class="form-control form-control" name="genderPreference">
-                                <option selected disabled hidden style='display: none' value=''></option>
-                                <option> Yes </option>
-                                <option> No </option>
-                            </select>
-                        </div>
-
-
-                        
-                        <div class="form-group">
-                            <label> Do you sleep early or late? </label>
-                            <select class="form-control form-control" name="sleepTime">
-                                <option selected disabled hidden style='display: none' value=''></option>
-                                <option> Early  </option>
-                                <option> Late </option>
-                            </select>
-                        </div>
-
-                        
-                        <div class="form-group">
-                            <label> Do you prefere to sleep with the AC on or off? </label>
-                            <select class="form-control form-control" name="ACPreference">
-                                <option selected disabled hidden style='display: none' value=''></option>
-                                <option> On </option>
-                                <option> Off </option>
-                                <option> No preference </option>
-                            </select>
-                        </div>
-
-                        
-                        <div class="form-group">
-                            <label> Are you a loud or quiet person? </label>
-                            <select class="form-control form-control" name="noiseLevel">
-                                <option selected disabled hidden style='display: none' value=''></option>
-                                <option> Loud </option>
-                                <option> Quiet </option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label> Do you prefer a quiet or loud roommate? </label>
-                            <select class="form-control form-control" name="noisePreference">
-                                <option selected disabled hidden style='display: none' value=''></option>
-                                <option> Loud </option>
-                                <option> Quiet </option>
-                                <option> No preference </option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label>  What is your biggest pet peeve?</label>
-                            <input type="text" class="form-control" name="petPeeve">
-                            </div>
-
-                        
-                   
-                        
+                    <div class="form-group">
+                        <label> Do you snore? </label>
+                        <select class="form-control form-control" name="snore" id="snore">
+                            <option selected disabled hidden style='display: none' value=''></option>
+                            <option> Yes </option>
+                            <option> No </option>
+                            <option> I don't know </option>
+                        </select>
                     </div>
-    
 
 
-                    <button id="submitButton" type="submit" class="btn btn-primary btn-lg btn-block mb-5">
-                        Submit</button>
+                    <div class="form-group">
+                        <label> Are you open to having a roommate of the opposite gender? </label>
+                        <select class="form-control form-control" name="genderPreference" id="genderPreference">
+                            <option selected disabled hidden style='display: none' value=''></option>
+                            <option> Yes </option>
+                            <option> No </option>
+                        </select>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label> Do you sleep early or late? </label>
+                        <select class="form-control form-control" name="sleepTime" id="sleepTime">
+                            <option selected disabled hidden style='display: none' value=''></option>
+                            <option> Early </option>
+                            <option> Late </option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label> Do you prefere to sleep with the AC on or off? </label>
+                        <select class="form-control form-control" name="ACPreference" id="ACPreference">
+                            <option selected disabled hidden style='display: none' value=''></option>
+                            <option> On </option>
+                            <option> Off </option>
+                            <option> No preference </option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label> Are you a loud or quiet person? </label>
+                        <select class="form-control form-control" name="noiseLevel" id="noiseLevel">
+                            <option selected disabled hidden style='display: none' value=''></option>
+                            <option> Loud </option>
+                            <option> Quiet </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label> Do you prefer a quiet or loud roommate? </label>
+                        <select class="form-control form-control" name="noisePreference" id="noisePreference">
+                            <option selected disabled hidden style='display: none' value=''></option>
+                            <option> Loud </option>
+                            <option> Quiet </option>
+                            <option> No preference </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label> What is your biggest pet peeve?</label>
+                        <input type="text" class="form-control" name="petPeeve" id="petPeeve">
+                    </div>
+                </div>
+                <button id="submitButton" type="submit" class="btn btn-primary btn-lg btn-block mb-5">
+                    Submit</button>
             </form>
     </div>
 </div>
@@ -269,8 +263,12 @@
         let atLeastOneIsChecked = $('#allowAuthorization:checkbox:checked').length > 0;
 
         if (
-            ($('#emFullName').val() != '') && ($('#emRelationship').val() != '') && ($('#emPhoneNumber').val() != '') && ($('#arrivalTime').val() != '') && ($('#departureTime').val() != '') && ($('#othersArrivingWith').val() != '')
-            && ($('#gainFromStaffRetreat').val() != '') && ($('#medicalConditions').val() != '') && ($('#allergies').val() != '') && atLeastOneIsChecked
+           
+             ($('#firstName').val() != '') && ($('#lastName').val() != '')  && ($('#email').val() != '') && ($('#phoneNumber').val() != '')  && ($('#school').val() != '') && ($('#otherSchool').val() != '')
+             && ($('#pronouns').val() != '') && ($('#dateOfBirth').val() != '') && ($('#EMName').val() != '') && ($('#EMPhoneNumber').val() != '') && ($('#major').val() != '') && ($('#medicalConditions').val() != '')
+             && ($('#allergies').val() != '') && ($('#dietaryRestrictions').val() != '')  && ($('#tshirtSize').val() != '')   && ($('#roommatePreferenceName').val() != '')
+            && ($('#neat').val() != '') && ($('#cleanliness').val() != '') && ($('#typeOfSleeper').val() != '') && ($('#snore').val() != '') && ($('#genderPreference').val() != '') && ($('#sleepTime').val() != '')
+            && ($('#ACPreference').val() != '') && ($('#noiseLevel').val() != '') && ($('#noisePreference').val() != '') && ($('#petPeeve').val() != '')
         ) {
             console.log($(204, ($('#emFullName').val() != '')));
 

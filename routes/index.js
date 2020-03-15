@@ -31,13 +31,13 @@ client.connect(err => {
 
     //List of schools for registration from
     let schoolList = ["University of Georgia", "Auburn University", "Clemnson University", "Emory University", "Florida State University", "Georgia Institute of Technology",
-      "Georgia State University", "Kennesaw State University", "Mercer University", "University of Alabama at Birmingham",  "University of Central Florida", 
+      "Georgia State University", "Kennesaw State University", "Mercer University", "University of Alabama at Birmingham", "University of Central Florida",
       "University of Florida", "University of Memphis", "University of North Carolina at Charlotte", "University of North Carolina at Greensboro",
       "University of South Carolina", "University of South Florida", "University of West Florida", "University of Tennessee at Knoxville", "Other"];
 
 
     collection.find(collectionCriteria).toArray(function (err, result) {
-    
+
 
       if (err) {
         console.log("Error is " + err);
@@ -47,7 +47,7 @@ client.connect(err => {
       else if (req.user.email == "admin@gmail.com" && content == "dashboard") {
         res.redirect("admin/overview");
       }
-     
+
       else {
 
         let title = content[0].toUpperCase() + content.substring(1);
@@ -66,7 +66,7 @@ client.connect(err => {
           })
         }
         else {
-       
+
           res.render("User/" + content, {
             result: result,
             schoolList: schoolList,
@@ -98,27 +98,26 @@ client.connect(err => {
 
 
 
-   
+
     let schoolList = ["Auburn University", "Clemnson University", "Emory University", "Florida State University", "Georgia Institute of Technology",
       "Georgia State University", "Kennesaw State University", "Mercer University", "University of Alabama at Birmingham", "University of Central Florida", "University of Georgia",
       "University of Florida", "University of Memphis", "University of North Carolina at Charlotte", "University of North Carolina at Greensboro",
       "University of South Carolina", "University of South Florida", "University of West Florida", "University of Tennessee at Knoxville", "Other"];
-  
+
     let errors = [];
     //Check required fields
- 
-    
+
+
     //Check if any fields are blank
-    for(let a = 0; a < questions.length - 1; a++)
-    {
+    for (let a = 0; a < questions.length - 1; a++) {
       console.log(115, req.body[questions[a]]);
-      if(req.body[questions[a]] == '') {
-     
+      if (req.body[questions[a]] == '') {
+
         errors.push({ msg: `UNSUCCESSFUL! Please fill in all fields!` });
         break;
       }
     }
-    
+
     if (errors.length > 0) {
 
       res.render("User/eventRegister", {
@@ -134,14 +133,16 @@ client.connect(err => {
 
   });
 
-   //Submit form
-   router.post("/submitElementRegistration", (req, res) => {
+  //Submit form
+  router.post("/submitElementRegistration", (req, res) => {
 
     let token = req.user.token;
-    let questions = ["firstName", "lastName", "email", "phoneNumber", "school", "pronouns", 
-    "dateOfBirth", "major", "name", "phoneNumber", "medicalConditions", "allergies", 
-    "dietaryRestrictions", "tshirtSize", "gainFromConference", "allowAuthorization"];
-
+    let questions = ["firstName", "lastName", "email", "phoneNumber", "school", "pronouns",
+      "dateOfBirth", "major", "name", "phoneNumber", "medicalConditions", "allergies",
+      "dietaryRestrictions", "tshirtSize", "gainFromConference", "allowAuthorization",
+      "roommatePreferenceName", "display ", "cleanliness", "typeOfSleeper ", "snore", "genderPreference",
+      "sleepTime", "ACPreference", "noiseLevel ", "noisePreference ", " petPeeve",
+    ];
 
 
     let dataDocument = {};
@@ -163,27 +164,26 @@ client.connect(err => {
       "petPeeve"
     ];
 
-   
+
     let schoolList = ["Auburn University", "Clemnson University", "Emory University", "Florida State University", "Georgia Institute of Technology",
       "Georgia State University", "Kennesaw State University", "Mercer University", "University of Alabama at Birmingham", "University of Central Florida", "University of Georgia",
       "University of Florida", "University of Memphis", "University of North Carolina at Charlotte", "University of North Carolina at Greensboro",
       "University of South Carolina", "University of South Florida", "University of West Florida", "University of Tennessee at Knoxville", "Other"];
-  
+
     let errors = [];
     //Check required fields
- 
-    
+
+
     //Check if any fields are blank
-    for(let a = 0; a < questions.length - 1; a++)
-    {
+    for (let a = 0; a < questions.length - 1; a++) {
       console.log(115, req.body[questions[a]]);
-      if(req.body[questions[a]] == '') {
-     
+      if (req.body[questions[a]] == '') {
+
         errors.push({ msg: `UNSUCCESSFUL! Please fill in all fields!` });
         break;
       }
     }
-    
+
     if (errors.length > 0) {
 
       res.render("User/eventRegister", {
@@ -201,57 +201,6 @@ client.connect(err => {
 
 
 
-
-
-
-  //Request to create book entry
-  router.post("/createBookEntry/:name", ensureAuthenticated, (req, res, next) => {
-    const name = req.params.name;
-
-    const title = req.body.title;
-    const author = req.body.author;
-
-    collection.updateOne({ name: name }, { $push: { BookTitle: { Title: title, Author: author, Note: [] } } });
-
-    res.redirect("/dashboard");
-  });
-
-  //Requst to create note
-  router.post("/insertNote/:index/:name/:bookTitle", ensureAuthenticated, (req, res, next) => {
-    const name = req.params.name;
-    const index = req.params.index;
-    const title = req.body.title;
-    const bookTitle = req.params.bookTitle;
-    const note = { content: req.body.note, created: new Date().toLocaleString("en-US", { timeZone: "America/New_York" }) };
-
-    collection.updateOne({ name: name, "BookTitle.Title": bookTitle }, { $push: { "BookTitle.$.Note": note } });
-
-    res.redirect("/getBookNotes/" + index + "/" + name);
-  });
-
-  //Request to update note
-  router.post("/updateNote/:noteIndex/:name/:bookTitle/:bookIndex", ensureAuthenticated, (req, res, next) => {
-    const name = req.params.name;
-    const bookIndex = req.params.bookIndex;
-    const noteIndex = req.params.noteIndex;
-    const title = req.body.title;
-    const bookTitle = req.params.bookTitle;
-    const note = { content: req.body.note, created: new Date().toLocaleString("en-US", { timeZone: "America/New_York" }) };
-
-    collection.updateOne({ name: name, "BookTitle.Title": bookTitle }, { $set: { ["BookTitle.$.Note." + noteIndex]: note } });
-
-    res.redirect("/getBookNotes/" + bookIndex + "/" + name);
-  });
-
-  //Request to delete book entry
-  router.post("/deleteNote/:bookTitle/:name", ensureAuthenticated, (req, res, next) => {
-    const name = req.params.name;
-    const bookTitle = req.params.bookTitle;
-
-    collection.updateOne({ name: name, "BookTitle.Title": bookTitle }, { $pull: { BookTitle: { Title: bookTitle } } });
-
-    res.redirect("/dashboard");
-  });
 });
 
 module.exports = router;

@@ -179,6 +179,9 @@ a {
   margin-bottom: 10px; /* Added */
 }
 
+.disableCursor {
+  cursor: not-allowed;
+}
 
 
 
