@@ -15,6 +15,11 @@ client.connect(err => {
   //Get Welcome page
   router.get("/", (req, res) => res.render("Account/login", { layout: "userLayout", title: "Login" }));
 
+  router.get('/favicon.ico', function (req, res) {
+    console.log("Favi icon loaded");
+  });
+
+
   //Returns view for dashboard or profile
   router.get("/:content", ensureAuthenticated, (req, res) => {
 
@@ -48,6 +53,8 @@ client.connect(err => {
         res.redirect("admin/overview");
       }
 
+
+
       else {
 
         let title = content[0].toUpperCase() + content.substring(1);
@@ -65,6 +72,20 @@ client.connect(err => {
             title: "Registration Form",
           })
         }
+        else if (content == "elementRegister") {
+          if(result[0].element3.length > 0) {
+            res.redirect("/dashboard");
+          }
+          else {
+            res.render("User/elementRegister", {
+              result: result,
+              schoolList: schoolList,
+              alreadyRegistered: result[0].element3.length,
+              title: title,
+            })
+          }
+        
+        }
         else {
 
           res.render("User/" + content, {
@@ -80,9 +101,6 @@ client.connect(err => {
     });
   });
 
-  router.get('/favicon.ico', function (req, res) {
-    console.log("Favi icon loaded");
-  });
 
 
   //Submit form
@@ -137,8 +155,8 @@ client.connect(err => {
   router.post("/submitElementRegistration", (req, res) => {
 
     let token = req.user.token;
-    let questions = ["firstName", "lastName", "email", "phoneNumber", "school", "pronouns",
-      "dateOfBirth", "major", "name", "phoneNumber", "medicalConditions", "allergies",
+    let questions = ["firstName", "lastName", "email", "phoneNumber", "school", "otherSchool", "pronouns",
+      "dateOfBirth", "major", "EMName", "EMPhoneNumber", "medicalConditions", "allergies",
       "dietaryRestrictions", "tshirtSize", "gainFromConference", "allowAuthorization",
       "roommatePreferenceName", "neat", "cleanliness", "typeOfSleeper", "snore", "genderPreference",
       "sleepTime", "ACPreference", "noiseLevel", "noisePreference", "petPeeve",
@@ -164,7 +182,7 @@ client.connect(err => {
     //Check if any fields are blank
     for (let a = 0; a < questions.length - 1; a++) {
       console.log(115, req.body[questions[a]]);
-     
+
     }
 
     if (errors.length > 0) {

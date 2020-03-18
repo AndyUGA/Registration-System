@@ -54,10 +54,12 @@ client.connect(err => {
           "University of South Carolina", "University of South Florida", "University of West Florida", "University of Tennessee at Knoxville", "Other"];
 
         //List of Fields names for Admin View
-        let fieldNames = ["First Name", "Last Name", "Email", "Phone Number", "School", "If other, please type:", "Pronouns", "Date of Birth", "Major",
-          "EM Contact Name", "EM Contact Phone", "Medical Conditions", "Allergies", "Vegetarian", "T-shirt Size", "What to gain", "Media Release"];
-
-
+        let fieldNames = ["First Name", "Last Name", "Email", "Phone Number", "School",  "If other, please type:", "Pronouns", "Date of Birth", "Major",
+          "EM Contact Name", "EM Contact Phone", "Medical Conditions", "Allergies", "Vegetarian", "T-shirt Size", "What to gain", "Media Release",
+          "Roomate Preference", "Neat", "Cleanliness", "Sleep Type", "Snore", "Gender Preference", "Sleep Time", "AC Preference", "Noise Level", "Noise Preference", "Pet Peeve"
+        ];
+        
+    
 
         let tempArray = [];
 
@@ -65,7 +67,7 @@ client.connect(err => {
         for (let i = 0; i < result.length; i++) {
           try {
 
-            if (result[i].elementRetreat2019.length > 0 && result[i].firstName != 'admin') {
+            if (result[i].element3.length > 0 && result[i].firstName != 'admin') {
               tempArray[i] = result[i];
             }
           }
@@ -78,7 +80,7 @@ client.connect(err => {
 
         //Delete empty items in set
         tempArray = tempArray.filter(x => x);
-
+        console.log(83, tempArray[0].element3);
 
         res.render("Admin/attendeeinfoElement3", {
           result: result,
@@ -87,7 +89,7 @@ client.connect(err => {
           schoolList: schoolList,
           numRegistered: result.length,
           title: "Admin Attendee Info",
-
+        
         });
 
       }
