@@ -29,4 +29,4 @@ This is UVSASE's registration system that allows users to register for events an
 - JavaScript
 
 ---------------------------------------------------------------------------------------------------------------------------
-[Live Preview](http://cottony-ounce.glitch.me)
+[Live Preview](https://registration.uvsase.org/)
