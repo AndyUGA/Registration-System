@@ -29,4 +29,4 @@ This is UVSASE's registration system that allows users to register for events an
 - JavaScript
 
 ---------------------------------------------------------------------------------------------------------------------------
-[Live Preview](https://registration.uvsase.org/)
+[Live Preview](https://uvsase-registration.herokuapp.com/)
